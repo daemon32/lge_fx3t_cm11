@@ -315,27 +315,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/usf_tester:system/bin/usf_tester \
     $(LOCAL_PATH)/proprietary/bin/wdsdaemon:system/bin/wdsdaemon \
     $(LOCAL_PATH)/proprietary/bin/wl:system/bin/wl \
-    $(LOCAL_PATH)/proprietary/etc/clatd_45000.conf:system/etc/clatd_45000.conf \
-    $(LOCAL_PATH)/proprietary/etc/com.lge.music.xml:system/etc/com.lge.music.xml \
-    $(LOCAL_PATH)/proprietary/etc/com.lge.streamingplayer.xml:system/etc/com.lge.streamingplayer.xml \
-    $(LOCAL_PATH)/proprietary/etc/com.lge.videoplayer.xml:system/etc/com.lge.videoplayer.xml \
-    $(LOCAL_PATH)/proprietary/etc/dcm_settings.xml:system/etc/dcm_settings.xml \
-    $(LOCAL_PATH)/proprietary/etc/efs.txt:system/etc/efs.txt \
-    $(LOCAL_PATH)/proprietary/etc/fallback_fonts_ame.xml:system/etc/fallback_fonts_ame.xml \
-    $(LOCAL_PATH)/proprietary/etc/featureset.xml:system/etc/featureset.xml \
-    $(LOCAL_PATH)/proprietary/etc/file_crc.txt:system/etc/file_crc.txt \
     $(LOCAL_PATH)/proprietary/etc/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/proprietary/etc/interactionconfig.xml:system/etc/interactionconfig.xml \
-    $(LOCAL_PATH)/proprietary/etc/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/proprietary/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/proprietary/etc/msap.conf:system/etc/msap.conf \
     $(LOCAL_PATH)/proprietary/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
-    $(LOCAL_PATH)/proprietary/etc/quipc.conf:system/etc/quipc.conf \
-    $(LOCAL_PATH)/proprietary/etc/sap.conf:system/etc/sap.conf \
-    $(LOCAL_PATH)/proprietary/etc/sec_config:system/etc/sec_config \
-    $(LOCAL_PATH)/proprietary/etc/settings.xml:system/etc/settings.xml \
-    $(LOCAL_PATH)/proprietary/etc/telephony.xml:system/etc/telephony.xml \
     $(LOCAL_PATH)/proprietary/etc/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/proprietary/lib/libAppDataSearch.so:system/lib/libAppDataSearch.so \
     $(LOCAL_PATH)/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \
@@ -510,9 +493,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libproxyhal.so:system/lib/libproxyhal.so \
     $(LOCAL_PATH)/proprietary/lib/libpsrnlge.so:system/lib/libpsrnlge.so \
     $(LOCAL_PATH)/proprietary/lib/libq3d.so:system/lib/libq3d.so \
-    $(LOCAL_PATH)/proprietary/lib/libqcci_adc.so:system/lib/libqcci_adc.so \
-    $(LOCAL_PATH)/proprietary/lib/libqcci_legacy.so:system/lib/libqcci_legacy.so \
-    $(LOCAL_PATH)/proprietary/lib/libqdi.so:system/lib/libqdi.so \
     $(LOCAL_PATH)/proprietary/lib/libqdp.so:system/lib/libqdp.so \
     $(LOCAL_PATH)/proprietary/lib/libqs.so:system/lib/libqs.so \
     $(LOCAL_PATH)/proprietary/lib/libQSEEComAPI.so:system/lib/libQSEEComAPI.so \
@@ -615,6 +595,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/rmt_storage:system/bin/rmt_storage \
     $(LOCAL_PATH)/proprietary/etc/init.engdo.mdm_links.sh:system/etc/init.engdo.mdm_links.sh \
     $(LOCAL_PATH)/proprietary/etc/init.engdo.modem_links.sh:system/etc/init.engdo.modem_links.sh \
+    $(LOCAL_PATH)/proprietary/lib/libqcci_adc.so:system/lib/libqcci_adc.so \
+    $(LOCAL_PATH)/proprietary/lib/libqcci_legacy.so:system/lib/libqcci_legacy.so \
+    $(LOCAL_PATH)/proprietary/lib/libqdi.so:system/lib/libqdi.so \
     $(LOCAL_PATH)/proprietary/lib/libqmi.so:system/lib/libqmi.so \
     $(LOCAL_PATH)/proprietary/lib/libqmi_client_qmux.so:system/lib/libqmi_client_qmux.so \
     $(LOCAL_PATH)/proprietary/lib/libqmi_csvt_srvc.so:system/lib/libqmi_csvt_srvc.so \
