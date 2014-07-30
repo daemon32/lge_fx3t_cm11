@@ -70,9 +70,19 @@ on early-boot
 
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
+    chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
+    chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
+    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
+    chown system system /sys/module/sco/parameters/disable_esco
     chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
+    chmod 0660 /sys/module/bluetooth_power/parameters/power
     chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
-    chown bluetooth net_bt_stack /sys/devices/platform/msm_serial_hs.0/clock
+    chmod 0660 /sys/class/rfkill/rfkill0/state
+    chmod 0660 /proc/bluetooth/sleep/proto
+    chown bluetooth bluetooth /dev/ttyHS0
+    chmod 0660 /dev/ttyHS0
+    chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
     chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
 
     chmod 0660 /dev/ttyHS2
@@ -91,7 +101,6 @@ on boot
     # Allow QMUX daemon to assign port open wait time
     chown radio radio /sys/devices/virtual/hsicctl/hsicctl0/modem_wait
 
-    insmod /system/lib/modules/wlan.ko
     setprop wifi.interface wlan0
 
     setprop ro.telephony.call_ring.multiple false
@@ -230,7 +239,6 @@ on post-fs-data
     mkdir /data/wpstiles/ 0755 shell
     mkdir /data/wiper 0755 gps qcom_oncrpc
 
-
     # Create directories for gpsone_daemon services
     mkdir /data/misc/gpsone_d 0770 system gps
 
@@ -333,17 +341,6 @@ service hciattach_ath3k /system/bin/sh /system/etc/init.ath3k.bt.sh
      disabled
      oneshot
 
-#ZTE BT TESTMODE  bluetooth
-service bttestmode /system/bin/sh /system/bin/bt_testmode_new.sh
-    user root
-    oneshot
-    disabled  
-
-service btsspdebugmode /system/bin/sh /system/bin/bt_ssp_debug_mode.sh
-    user root
-    oneshot
-    disabled
-
 service bt-sap /system/bin/sapd 15
     user bluetooth
     group bluetooth net_bt_admin
@@ -403,7 +400,23 @@ service btwlancoex /system/bin/sh /system/etc/init.qcom.coex.sh
     disabled
     oneshot
 
+service amp_init /system/bin/amploader -i
+    class late_start
+    user root
+    disabled
+    oneshot
 
+service amp_load /system/bin/amploader -l 7000
+    class late_start
+    user root
+    disabled
+    oneshot
+
+service amp_unload /system/bin/amploader -u
+    class late_start
+    user root
+    disabled
+    oneshot
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
@@ -509,6 +522,20 @@ service location_mq /system/bin/location-mq
     group gps
     disabled
 
+service xtwifi_inet /system/bin/xtwifi-inet-agent
+    class late_start
+    user gps
+    group inet gps
+    disabled
+
+service xtwifi_client /system/bin/xtwifi-client
+    class late_start
+    user gps
+    group net_admin wifi inet gps
+    disabled
+#[COM_GNSS::COMMON][E]
+
+
 service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
     class late_start
     user root
@@ -561,9 +588,17 @@ service wifi-crda /system/bin/sh /system/etc/init.crda.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
-#ZTE_LC_IP_DEBUG, 20130625 start
-    chown system system /sys/kernel/debug/tcp_output_debug/enable_debug
-#ZTE_LC_IP_DEBUG, 20130625 end
+
+service atfwd /system/bin/ATFWD-daemon
+    class late_start
+    user system
+    group system radio
+    onrestart /system/bin/log -t RIL-ATFWD -p w "ATFWD daemon restarted"
+
+service hdmid /system/bin/hdmid
+    class late_start
+    socket hdmid stream 0660 root system graphics
+    disabled
 
 service ppd /system/bin/mm-pp-daemon
     class late_start
@@ -587,14 +622,22 @@ service ds_fmc_appd /system/bin/ds_fmc_appd -p "rmnet0" -D
 on property:persist.data.ds_fmc_app.mode=1
     start ds_fmc_appd
 
+service ims_regmanager /system/bin/exe-ims-regmanagerprocessnative
+    class late_start
+    group qcom_oncrpc net_bt_admin inet radio wifi
+    disabled
+
+on property:persist.ims.regmanager.mode=1
+    start ims_regmanager
+
 on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
-service secril-daemon /system/bin/sec-ril
-    class main
-    user root
-    group radio cache inet misc audio sdcard_rw qcom_diag log
+service battery_monitor /system/bin/battery_monitor
+    user system
+    group system
+    disabled
 
 service ril-daemon1 /system/bin/rild -c 1
     class main
@@ -603,6 +646,12 @@ service ril-daemon1 /system/bin/rild -c 1
     user root
     disabled
     group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
+
+service profiler_daemon /system/bin/profiler_daemon
+    class late_start
+    user root
+    group root
+    disabled
 
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
@@ -619,13 +668,7 @@ service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk
 
 on property:ro.fuse_sdcard=true
     start sdcard
-
-#lianghouxing add qcom-post-ftm for LOW POWER
-service qcom-post-ftm /system/bin/sh /system/etc/init.qcom.post_boot_ftm.sh
-    class late_start
-    user root 
-    disabled
-    oneshot  	
+ 	
 	
 
 # This will make sure that sdcard service starts as late_start.
@@ -643,10 +686,6 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
 
 service charger /charger
     class charger
-
-	#lianghouxing add qcom-post-ftm for LOW POWER
-on property:sys.boot_completed_ftm=1
-    start qcom-post-ftm
 	
 # Restart adbd so it can run as root
 on property:service.adb.root=1
