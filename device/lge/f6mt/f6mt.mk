@@ -174,6 +174,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 #RIL
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+        ro.telephony.ril_class=LGEQualcommUiccRIL \
 	rild.libpath=/system/lib/libril-qc-qmi-1.so \
         rild.libargs=-d /dev/smd0 \
         persist.rild.nitz_plmn= \
