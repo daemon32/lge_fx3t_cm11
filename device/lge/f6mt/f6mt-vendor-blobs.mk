@@ -335,7 +335,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/proprietary/etc/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/proprietary/etc/msap.conf:system/etc/msap.conf \
-    $(LOCAL_PATH)/proprietary/etc/nexcodec.cfg:system/etc/nexcodec.cfg \
     $(LOCAL_PATH)/proprietary/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
     $(LOCAL_PATH)/proprietary/etc/quipc.conf:system/etc/quipc.conf \
     $(LOCAL_PATH)/proprietary/etc/sap.conf:system/etc/sap.conf \
@@ -510,34 +509,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libnetfilter_conntrack.so:system/lib/libnetfilter_conntrack.so \
     $(LOCAL_PATH)/proprietary/lib/libnetjni.so:system/lib/libnetjni.so \
     $(LOCAL_PATH)/proprietary/lib/libnetmgr.so:system/lib/libnetmgr.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexadaptation_layer.so:system/lib/libnexadaptation_layer.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexaudiorenderer.so:system/lib/libnexaudiorenderer.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexplayersdk.so:system/lib/libnexplayersdk.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_aac_dl.so:system/lib/libnexstreaming_aac_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_ac3_dl.so:system/lib/libnexstreaming_ac3_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_adpcm_dl.so:system/lib/libnexstreaming_adpcm_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_amrnb_dl.so:system/lib/libnexstreaming_amrnb_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_amrwb_dl.so:system/lib/libnexstreaming_amrwb_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_asp_dl.so:system/lib/libnexstreaming_asp_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_divx3_dl.so:system/lib/libnexstreaming_divx3_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_drm16.so:system/lib/libnexstreaming_drm16.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_dts_dl.so:system/lib/libnexstreaming_dts_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_evrc_dl.so:system/lib/libnexstreaming_evrc_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_flac_dl.so:system/lib/libnexstreaming_flac_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_gsm610_dl.so:system/lib/libnexstreaming_gsm610_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_h264_dl.so:system/lib/libnexstreaming_h264_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_mp3_dl.so:system/lib/libnexstreaming_mp3_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_ogg_dl.so:system/lib/libnexstreaming_ogg_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_pcm_dl.so:system/lib/libnexstreaming_pcm_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_qcelp_dl.so:system/lib/libnexstreaming_qcelp_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_qcom_dl.so:system/lib/libnexstreaming_qcom_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_t3gpp_dl.so:system/lib/libnexstreaming_t3gpp_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_theora_dl.so:system/lib/libnexstreaming_theora_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_vp8_dl.so:system/lib/libnexstreaming_vp8_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_webvtt_dl.so:system/lib/libnexstreaming_webvtt_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_wma_dl.so:system/lib/libnexstreaming_wma_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexstreaming_wmv_dl.so:system/lib/libnexstreaming_wmv_dl.so \
-    $(LOCAL_PATH)/proprietary/lib/libnexvideodisplayer.so:system/lib/libnexvideodisplayer.so \
     $(LOCAL_PATH)/proprietary/lib/libnfc13_ndef.so:system/lib/libnfc13_ndef.so \
     $(LOCAL_PATH)/proprietary/lib/libnfc13-nxp.so:system/lib/libnfc13-nxp.so \
     $(LOCAL_PATH)/proprietary/lib/libnfc_ndef-nxp.so:system/lib/libnfc_ndef-nxp.so \
