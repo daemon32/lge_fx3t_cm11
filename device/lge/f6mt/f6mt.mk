@@ -97,6 +97,15 @@ PRODUCT_PACKAGES += \
     libdashplayer \
     qcmediaplayer
 
+# NFC packages
+PRODUCT_PACKAGES += \
+    nfc_nci.f6mt \
+    NfcNci \
+    Tag \
+    com.android.nfc_extras
+# NFCEE access control
+    NFCEE_ACCESS_PATH := device/lge/f6mt/nfc/nfcee_access.xml
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8960
@@ -105,6 +114,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libQWiFiSoftApCfg \
     libqsap_sdk
+
+PRODUCT_PACKAGES += \
+    wpa_supplicant_overlay.conf \
+    p2p_supplicant_overlay.conf
 
 # GPS
 PRODUCT_PACKAGES += \
@@ -159,6 +172,38 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
+#RIL
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+	rild.libpath=/system/lib/libril-qc-qmi-1.so \
+        rild.libargs=-d /dev/smd0 \
+        persist.rild.nitz_plmn= \
+        persist.rild.nitz_long_ons_0= \
+        persist.rild.nitz_long_ons_1= \
+        persist.rild.nitz_long_ons_2= \
+        persist.rild.nitz_long_ons_3= \
+        persist.rild.nitz_short_ons_0= \
+        persist.rild.nitz_short_ons_1= \
+        persist.rild.nitz_short_ons_2= \
+        persist.rild.nitz_short_ons_3= \
+        ril.subscription.types=NV,RUIM \
+        DEVICE_PROVISIONED=1
+
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.build.target_operator=TMO \
+        ro.build.target_operator_ext=MPCS_TMO \
+        ro.build.target_country=US
+
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.telephony.default_network=9 \
+	telephony.lteOnCdmaDevice=0 \
+        persist.gsm.sms.forcegsm7=0 \
+        ro.radio.GWLdevice=1 \
+        ro.radio.topreviousmode=disable \
+        persist.radio.lte_vrte_ltd=1 
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	drm.service.enabled=true
+
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
@@ -186,17 +231,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.use_data_netmgrd=true \
     lpa.decode=true \
     lpa.use-stagefright=true \
-    rild.libpath=/system/lib/libril-qc-qmi-1.so \
-    persist.rild.nitz_plmn="" \
-    persist.rild.nitz_long_ons_0="" \
-    persist.rild.nitz_long_ons_1="" \
-    persist.rild.nitz_long_ons_2="" \
-    persist.rild.nitz_long_ons_3="" \
-    persist.rild.nitz_short_ons_0="" \
-    persist.rild.nitz_short_ons_1="" \
-    persist.rild.nitz_short_ons_2="" \
-    persist.rild.nitz_short_ons_3="" \
-    ril.subscription.types=NV,RUIM \
     persist.gps.qmienabled=true \
     persist.gps.qc_nlp_in_use=0 \
     persist.fuse_sdcard=true \
@@ -211,9 +245,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.egl.hw=1 \
     persist.hwc.mdpcomp.enable=true \
-    debug.mdpcomp.logs=0 \
-    ro.telephony.ril_class=LGEQualcommUiccRIL \
-    ro.telephony.call_ring.multiple=0
+    debug.mdpcomp.logs=0 
 
 # For userdebug builds
 ADDITIONAL_DEFAULT_PROPERTIES += \

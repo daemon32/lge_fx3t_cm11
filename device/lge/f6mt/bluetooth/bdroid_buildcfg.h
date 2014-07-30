@@ -1,6 +1,5 @@
 /*
- * Copyright (C) 2012 The Android Open Source Project
- * Copyright (C) 2013 The CyanogenMod Project <http://www.cyanogenmod.org>
+ * Copyright 2013 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,12 +17,12 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTA_DISABLE_DELAY 1000 /* in milliseconds */
-#define BLUETOOTH_QCOM_SW TRUE
-#define BTA_HOST_INTERLEAVE_SEARCH TRUE
-// skips conn update at conn completion
-#define BTA_BLE_SKIP_CONN_UPD TRUE
-// Disables read remote device feature
-#define BTA_SKIP_BLE_READ_REMOTE_FEAT TRUE
+#define BTA_DISABLE_DELAY 100 /* in milliseconds */
+
+/*
+ * shows MS500 as device name 
+ * DM_07/20/2014_BT-LGEF6-BCM4334
+ */
+#define BTM_DEF_LOCAL_NAME        "MS500" 
 
 #endif
