@@ -83,9 +83,17 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/bin/mm-jpeg-dec-test:system/bin/mm-jpeg-dec-test \
+    $(LOCAL_PATH)/proprietary/bin/mm-jpeg-dec-test-client:system/bin/mm-jpeg-dec-test-client \
+    $(LOCAL_PATH)/proprietary/bin/mm-jpeg-enc-test:system/bin/mm-jpeg-enc-test \
+    $(LOCAL_PATH)/proprietary/bin/mm-jpeg-enc-test-client:system/bin/mm-jpeg-enc-test-client \
+    $(LOCAL_PATH)/proprietary/bin/mm-jps-enc-test:system/bin/mm-jps-enc-test \
+    $(LOCAL_PATH)/proprietary/bin/mm-mpo-dec-test:system/bin/mm-mpo-dec-test \
+    $(LOCAL_PATH)/proprietary/bin/mm-mpo-enc-test:system/bin/mm-mpo-enc-test \
     $(LOCAL_PATH)/proprietary/bin/mm-qcamera-app:system/bin/mm-qcamera-app \
     $(LOCAL_PATH)/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon \
     $(LOCAL_PATH)/proprietary/bin/mm-qcamera-test:system/bin/mm-qcamera-test \
+    $(LOCAL_PATH)/proprietary/bin/v4l2-qcamera-app:system/bin/v4l2-qcamera-app \
     $(LOCAL_PATH)/proprietary/bin/mm-qcamera-testsuite-client:system/bin/mm-qcamera-testsuite-client \
     $(LOCAL_PATH)/proprietary/lib/libchromatix_imx111_default_video.so:system/lib/libchromatix_imx111_default_video.so \
     $(LOCAL_PATH)/proprietary/lib/libchromatix_imx111_preview.so:system/lib/libchromatix_imx111_preview.so \
@@ -108,7 +116,17 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libmmcamera_tintless_wrapper.so:system/lib/libmmcamera_tintless_wrapper.so \
     $(LOCAL_PATH)/proprietary/lib/libmmcamera_wavelet_lib.so:system/lib/libmmcamera_wavelet_lib.so \
     $(LOCAL_PATH)/proprietary/lib/libgemini.so:system/lib/libgemini.so \
+    $(LOCAL_PATH)/proprietary/lib/libimage-jpeg-dec-omx-comp.so:system/lib/libimage-jpeg-dec-omx-comp.so \
+    $(LOCAL_PATH)/proprietary/lib/libimage-jpeg-enc-omx-comp.so:system/lib/libimage-jpeg-enc-omx-comp.so \
+    $(LOCAL_PATH)/proprietary/lib/libimage-omx-common.so:system/lib/libimage-omx-common.so \
+    $(LOCAL_PATH)/proprietary/lib/libmercury.so:system/lib/libmercury.so \
+    $(LOCAL_PATH)/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    $(LOCAL_PATH)/proprietary/lib/libmmjpeg_interface.so:system/lib/libmmjpeg_interface.so \
+    $(LOCAL_PATH)/proprietary/lib/libmmmpod.so:system/lib/libmmmpod.so \
+    $(LOCAL_PATH)/proprietary/lib/libmmstillomx.so:system/lib/libmmstillomx.so \
+    $(LOCAL_PATH)/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
     $(LOCAL_PATH)/proprietary/lib/hw/camera.msm8960.so:system/lib/hw/camera.msm8960.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/lib-imscamera.so:system/vendor/lib/lib-imscamera.so \
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -146,7 +164,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/hw/sensors_qcom.so:system/lib/hw/sensors_qcom.so
 
 # Perf
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so
+
 
 # Keylayouts \ Keychars
 PRODUCT_COPY_FILES += \
@@ -192,8 +212,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/init.engdo.coex.sh:system/etc/init.engdo.coex.sh \
     $(LOCAL_PATH)/proprietary/etc/init.engdo.efs.sync.sh:system/etc/init.engdo.efs.sync.sh \
     $(LOCAL_PATH)/proprietary/etc/init.engdo.fm.sh:system/etc/init.engdo.fm.sh \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.mdm_links.sh:system/etc/init.engdo.mdm_links.sh \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.modem_links.sh:system/etc/init.engdo.modem_links.sh \
     $(LOCAL_PATH)/proprietary/etc/init.engdo.post_boot.sh:system/etc/init.engdo.post_boot.sh \
     $(LOCAL_PATH)/proprietary/etc/last_kmsg_backup.sh:system/etc/last_kmsg_backup.sh \
     $(LOCAL_PATH)/proprietary/etc/logging_android.sh:system/etc/logging_android.sh \
@@ -238,7 +256,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/drmdiagapp:system/bin/drmdiagapp \
     $(LOCAL_PATH)/proprietary/bin/dsqn:system/bin/dsqn \
     $(LOCAL_PATH)/proprietary/bin/dun-server:system/bin/dun-server \
-    $(LOCAL_PATH)/proprietary/bin/ecryptfs-run:system/bin/ecryptfs-run \
     $(LOCAL_PATH)/proprietary/bin/efsks:system/bin/efsks \
     $(LOCAL_PATH)/proprietary/bin/fmconfig:system/bin/fmconfig \
     $(LOCAL_PATH)/proprietary/bin/fm_qsoc_patches:system/bin/fm_qsoc_patches \
@@ -257,14 +274,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/lgdrmserver:system/bin/lgdrmserver \
     $(LOCAL_PATH)/proprietary/bin/lgsecclkserver:system/bin/lgsecclkserver \
     $(LOCAL_PATH)/proprietary/bin/mcStarter:system/bin/mcStarter \
-    $(LOCAL_PATH)/proprietary/bin/mdm_helper:system/bin/mdm_helper \
-    $(LOCAL_PATH)/proprietary/bin/mm-jpeg-dec-test:system/bin/mm-jpeg-dec-test \
-    $(LOCAL_PATH)/proprietary/bin/mm-jpeg-dec-test-client:system/bin/mm-jpeg-dec-test-client \
-    $(LOCAL_PATH)/proprietary/bin/mm-jpeg-enc-test:system/bin/mm-jpeg-enc-test \
-    $(LOCAL_PATH)/proprietary/bin/mm-jpeg-enc-test-client:system/bin/mm-jpeg-enc-test-client \
-    $(LOCAL_PATH)/proprietary/bin/mm-jps-enc-test:system/bin/mm-jps-enc-test \
-    $(LOCAL_PATH)/proprietary/bin/mm-mpo-dec-test:system/bin/mm-mpo-dec-test \
-    $(LOCAL_PATH)/proprietary/bin/mm-mpo-enc-test:system/bin/mm-mpo-enc-test \
     $(LOCAL_PATH)/proprietary/bin/mm-pp-daemon:system/bin/mm-pp-daemon \
     $(LOCAL_PATH)/proprietary/bin/mpdecision:system/bin/mpdecision \
     $(LOCAL_PATH)/proprietary/bin/mtsd:system/bin/mtsd \
@@ -285,7 +294,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/quickdump.sh:system/bin/quickdump.sh \
     $(LOCAL_PATH)/proprietary/bin/radish:system/bin/radish \
     $(LOCAL_PATH)/proprietary/bin/rctd:system/bin/rctd \
-    $(LOCAL_PATH)/proprietary/bin/rmt_storage:system/bin/rmt_storage \
     $(LOCAL_PATH)/proprietary/bin/sapd:system/bin/sapd \
     $(LOCAL_PATH)/proprietary/bin/sensord:system/bin/sensord \
     $(LOCAL_PATH)/proprietary/bin/sensors.qcom:system/bin/sensors.qcom \
@@ -305,7 +313,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/usbhub_init:system/bin/usbhub_init \
     $(LOCAL_PATH)/proprietary/bin/usf_epos:system/bin/usf_epos \
     $(LOCAL_PATH)/proprietary/bin/usf_tester:system/bin/usf_tester \
-    $(LOCAL_PATH)/proprietary/bin/v4l2-qcamera-app:system/bin/v4l2-qcamera-app \
     $(LOCAL_PATH)/proprietary/bin/wdsdaemon:system/bin/wdsdaemon \
     $(LOCAL_PATH)/proprietary/bin/wl:system/bin/wl \
     $(LOCAL_PATH)/proprietary/etc/clatd_45000.conf:system/etc/clatd_45000.conf \
@@ -398,9 +405,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libHtmlEditor.so:system/lib/libHtmlEditor.so \
     $(LOCAL_PATH)/proprietary/lib/libhtmlwebcore.so:system/lib/libhtmlwebcore.so \
     $(LOCAL_PATH)/proprietary/lib/libidl.so:system/lib/libidl.so \
-    $(LOCAL_PATH)/proprietary/lib/libimage-jpeg-dec-omx-comp.so:system/lib/libimage-jpeg-dec-omx-comp.so \
-    $(LOCAL_PATH)/proprietary/lib/libimage-jpeg-enc-omx-comp.so:system/lib/libimage-jpeg-enc-omx-comp.so \
-    $(LOCAL_PATH)/proprietary/lib/libimage-omx-common.so:system/lib/libimage-omx-common.so \
     $(LOCAL_PATH)/proprietary/lib/libimageutil_jni.so:system/lib/libimageutil_jni.so \
     $(LOCAL_PATH)/proprietary/lib/libImmVibeJ.so:system/lib/libImmVibeJ.so \
     $(LOCAL_PATH)/proprietary/lib/libirrc.so:system/lib/libirrc.so \
@@ -455,7 +459,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libloc_core.so:system/lib/libloc_core.so \
     $(LOCAL_PATH)/proprietary/lib/libloc_ds_api.so:system/lib/libloc_ds_api.so \
     $(LOCAL_PATH)/proprietary/lib/libloc_eng.so:system/lib/libloc_eng.so \
-    $(LOCAL_PATH)/proprietary/lib/libmercury.so:system/lib/libmercury.so \
     $(LOCAL_PATH)/proprietary/lib/libmlFIFO2.so:system/lib/libmlFIFO2.so \
     $(LOCAL_PATH)/proprietary/lib/libmm-abl.so:system/lib/libmm-abl.so \
     $(LOCAL_PATH)/proprietary/lib/libmm-abl-oem.so:system/lib/libmm-abl-oem.so \
@@ -467,17 +470,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libmmipstreamnetwork.so:system/lib/libmmipstreamnetwork.so \
     $(LOCAL_PATH)/proprietary/lib/libmmipstreamsourcehttp.so:system/lib/libmmipstreamsourcehttp.so \
     $(LOCAL_PATH)/proprietary/lib/libmmipstreamutils.so:system/lib/libmmipstreamutils.so \
-    $(LOCAL_PATH)/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
-    $(LOCAL_PATH)/proprietary/lib/libmmjpeg_interface.so:system/lib/libmmjpeg_interface.so \
     $(LOCAL_PATH)/proprietary/lib/libmmjps.so:system/lib/libmmjps.so \
     $(LOCAL_PATH)/proprietary/lib/libmmmpo.so:system/lib/libmmmpo.so \
-    $(LOCAL_PATH)/proprietary/lib/libmmmpod.so:system/lib/libmmmpod.so \
     $(LOCAL_PATH)/proprietary/lib/libmmosal.so:system/lib/libmmosal.so \
     $(LOCAL_PATH)/proprietary/lib/libmmparser.so:system/lib/libmmparser.so \
     $(LOCAL_PATH)/proprietary/lib/libmmQSM.so:system/lib/libmmQSM.so \
     $(LOCAL_PATH)/proprietary/lib/libmmrtpdecoder.so:system/lib/libmmrtpdecoder.so \
     $(LOCAL_PATH)/proprietary/lib/libmmrtpencoder.so:system/lib/libmmrtpencoder.so \
-    $(LOCAL_PATH)/proprietary/lib/libmmstillomx.so:system/lib/libmmstillomx.so \
     $(LOCAL_PATH)/proprietary/lib/libmnl.so:system/lib/libmnl.so \
     $(LOCAL_PATH)/proprietary/lib/libmorpho_memory_allocator.so:system/lib/libmorpho_memory_allocator.so \
     $(LOCAL_PATH)/proprietary/lib/libmorpho_noise_reduction.so:system/lib/libmorpho_noise_reduction.so \
@@ -498,7 +497,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libnfnetlink.so:system/lib/libnfnetlink.so \
     $(LOCAL_PATH)/proprietary/lib/libNimsWrap.so:system/lib/libNimsWrap.so \
     $(LOCAL_PATH)/proprietary/lib/libnsesolver.so:system/lib/libnsesolver.so \
-    $(LOCAL_PATH)/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
     $(LOCAL_PATH)/proprietary/lib/liboemcrypto.so:system/lib/liboemcrypto.so \
     $(LOCAL_PATH)/proprietary/lib/libOlaLGECameraJNI_4.so:system/lib/libOlaLGECameraJNI_4.so \
     $(LOCAL_PATH)/proprietary/lib/libOmxAacDec.so:system/lib/libOmxAacDec.so \
@@ -514,13 +512,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libq3d.so:system/lib/libq3d.so \
     $(LOCAL_PATH)/proprietary/lib/libqcci_adc.so:system/lib/libqcci_adc.so \
     $(LOCAL_PATH)/proprietary/lib/libqcci_legacy.so:system/lib/libqcci_legacy.so \
-    $(LOCAL_PATH)/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so \
     $(LOCAL_PATH)/proprietary/lib/libqdi.so:system/lib/libqdi.so \
     $(LOCAL_PATH)/proprietary/lib/libqdp.so:system/lib/libqdp.so \
-    $(LOCAL_PATH)/proprietary/lib/libqmi.so:system/lib/libqmi.so \
-    $(LOCAL_PATH)/proprietary/lib/libqmi_client_qmux.so:system/lib/libqmi_client_qmux.so \
-    $(LOCAL_PATH)/proprietary/lib/libqmi_csvt_srvc.so:system/lib/libqmi_csvt_srvc.so \
-    $(LOCAL_PATH)/proprietary/lib/libqmiservices.so:system/lib/libqmiservices.so \
     $(LOCAL_PATH)/proprietary/lib/libqs.so:system/lib/libqs.so \
     $(LOCAL_PATH)/proprietary/lib/libQSEEComAPI.so:system/lib/libQSEEComAPI.so \
     $(LOCAL_PATH)/proprietary/lib/librctransport.so:system/lib/librctransport.so \
@@ -577,12 +570,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/hw/lights.msm8960.so:system/lib/hw/lights.msm8960.so \
     $(LOCAL_PATH)/proprietary/lib/hw/nfc_lg.default.so:system/lib/hw/nfc_lg.default.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libalarmservice_jni.so:system/vendor/lib/libalarmservice_jni.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libdiag.so:system/vendor/lib/libdiag.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-dplmedia.so:system/vendor/lib/lib-dplmedia.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libdrmdecrypt.so:system/vendor/lib/libdrmdecrypt.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libepdsp.so:system/vendor/lib/libepdsp.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libgeofence.so:system/vendor/lib/libgeofence.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/lib-imscamera.so:system/vendor/lib/lib-imscamera.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-imsdpl.so:system/vendor/lib/lib-imsdpl.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-imsqimf.so:system/vendor/lib/lib-imsqimf.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-imsrcs.so:system/vendor/lib/lib-imsrcs.so \
@@ -592,16 +583,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-imsxml.so:system/vendor/lib/lib-imsxml.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libizat_core.so:system/vendor/lib/libizat_core.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/liblbs_core.so:system/vendor/lib/liblbs_core.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/liblgewebviewchromium.so:system/vendor/lib/liblgewebviewchromium.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libllvm-arm.so:system/vendor/lib/libllvm-arm.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/liblocationservice.so:system/vendor/lib/liblocationservice.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libnetxt_plugin_proxy.so:system/vendor/lib/libnetxt_plugin_proxy.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libpp_proc_plugin.so:system/vendor/lib/libpp_proc_plugin.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_cci.so:system/vendor/lib/libqmi_cci.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_common_so.so:system/vendor/lib/libqmi_common_so.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_csi.so:system/vendor/lib/libqmi_csi.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_encdec.so:system/vendor/lib/libqmi_encdec.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libqmodem_plugin.so:system/vendor/lib/libqmodem_plugin.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libquipc_os_api.so:system/vendor/lib/libquipc_os_api.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-rcsimssjni.so:system/vendor/lib/lib-rcsimssjni.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libredirect_plugin.so:system/vendor/lib/libredirect_plugin.so \
@@ -623,6 +608,21 @@ PRODUCT_COPY_FILES += \
 # Radio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/ds_fmc_appd:system/bin/ds_fmc_appd \
+    $(LOCAL_PATH)/proprietary/bin/mdm_helper:system/bin/mdm_helper \
     $(LOCAL_PATH)/proprietary/bin/netmgrd:system/bin/netmgrd \
     $(LOCAL_PATH)/proprietary/bin/qmiproxy:system/bin/qmiproxy \
     $(LOCAL_PATH)/proprietary/bin/qmuxd:system/bin/qmuxd \
+    $(LOCAL_PATH)/proprietary/bin/rmt_storage:system/bin/rmt_storage \
+    $(LOCAL_PATH)/proprietary/etc/init.engdo.mdm_links.sh:system/etc/init.engdo.mdm_links.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.engdo.modem_links.sh:system/etc/init.engdo.modem_links.sh \
+    $(LOCAL_PATH)/proprietary/lib/libqmi.so:system/lib/libqmi.so \
+    $(LOCAL_PATH)/proprietary/lib/libqmi_client_qmux.so:system/lib/libqmi_client_qmux.so \
+    $(LOCAL_PATH)/proprietary/lib/libqmi_csvt_srvc.so:system/lib/libqmi_csvt_srvc.so \
+    $(LOCAL_PATH)/proprietary/lib/libqmiservices.so:system/lib/libqmiservices.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libdiag.so:system/vendor/lib/libdiag.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_cci.so:system/vendor/lib/libqmi_cci.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_common_so.so:system/vendor/lib/libqmi_common_so.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_csi.so:system/vendor/lib/libqmi_csi.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_encdec.so:system/vendor/lib/libqmi_encdec.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libqmodem_plugin.so:system/vendor/lib/libqmodem_plugin.so \
+
