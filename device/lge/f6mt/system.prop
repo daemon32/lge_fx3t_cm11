@@ -8,5 +8,5 @@ DEVICE_PROVISIONED=1
 gsm.apn.sim.operator.numeric=310260
 gsm.operator.numeric=310260
 gsm.sim.operator.numeric=310260
-
+telephony.lteOnGsmDevice=1
 ro.sf.lcd_density=240
