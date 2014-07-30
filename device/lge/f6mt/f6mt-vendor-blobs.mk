@@ -83,6 +83,10 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/bin/mm-qcamera-app:system/bin/mm-qcamera-app \
+    $(LOCAL_PATH)/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon \
+    $(LOCAL_PATH)/proprietary/bin/mm-qcamera-test:system/bin/mm-qcamera-test \
+    $(LOCAL_PATH)/proprietary/bin/mm-qcamera-testsuite-client:system/bin/mm-qcamera-testsuite-client \
     $(LOCAL_PATH)/proprietary/lib/libchromatix_imx111_default_video.so:system/lib/libchromatix_imx111_default_video.so \
     $(LOCAL_PATH)/proprietary/lib/libchromatix_imx111_preview.so:system/lib/libchromatix_imx111_preview.so \
     $(LOCAL_PATH)/proprietary/lib/libchromatix_imx111_video_hd.so:system/lib/libchromatix_imx111_video_hd.so \
@@ -103,6 +107,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libmmcamera_tintless_algo.so:system/lib/libmmcamera_tintless_algo.so \
     $(LOCAL_PATH)/proprietary/lib/libmmcamera_tintless_wrapper.so:system/lib/libmmcamera_tintless_wrapper.so \
     $(LOCAL_PATH)/proprietary/lib/libmmcamera_wavelet_lib.so:system/lib/libmmcamera_wavelet_lib.so \
+    $(LOCAL_PATH)/proprietary/lib/libgemini.so:system/lib/libgemini.so \
+    $(LOCAL_PATH)/proprietary/lib/hw/camera.msm8960.so:system/lib/hw/camera.msm8960.so \
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -117,8 +123,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/BCM4334B0_002.001.013.1123.1127.hcd:system/bin/BCM4334B0_002.001.013.1123.1127.hcd \
     $(LOCAL_PATH)/proprietary/bin/brcm_patchram_plus:system/bin/brcm_patchram_plus \
-    $(LOCAL_PATH)/proprietary/bin/btnvtool:system/bin/btnvtool
-
+    $(LOCAL_PATH)/proprietary/bin/btnvtool:system/bin/btnvtool \
+    $(LOCAL_PATH)/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init
 
 # GPS
 #PRODUCT_COPY_FILES += \
@@ -132,11 +138,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libtime_genoff.so:obj/lib/libtime_genoff.so \
     $(LOCAL_PATH)/proprietary/lib/libtime_genoff.so:system/lib/libtime_genoff.so
 
-# Radio
-#PRODUCT_COPY_FILES += \
+
 
 # Sensors
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so \
+    $(LOCAL_PATH)/proprietary/lib/hw/sensors_qcom.so:system/lib/hw/sensors_qcom.so
 
 # Perf
 #PRODUCT_COPY_FILES += \
@@ -156,8 +163,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/usr/keylayout/samsung_remote_ir.kl:system/usr/keylayout/samsung_remote_ir.kl \
     $(LOCAL_PATH)/proprietary/usr/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl
 
-# Touch Screen IDC
+# Touch Screen
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/etc/firmware/cyttsp_8064_mtp.hex:system/etc/firmware/cyttsp_8064_mtp.hex \
+    $(LOCAL_PATH)/proprietary/etc/firmware/cyttsp_8960_cdp.hex:system/etc/firmware/cyttsp_8960_cdp.hex \
     $(LOCAL_PATH)/proprietary/usr/idc/melfas-ts.idc:system/usr/idc/melfas-ts.idc
 
 # Thermal
@@ -227,7 +236,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/diag_uart_log:system/bin/diag_uart_log \
     $(LOCAL_PATH)/proprietary/bin/digicl.sh:system/bin/digicl.sh \
     $(LOCAL_PATH)/proprietary/bin/drmdiagapp:system/bin/drmdiagapp \
-    $(LOCAL_PATH)/proprietary/bin/ds_fmc_appd:system/bin/ds_fmc_appd \
     $(LOCAL_PATH)/proprietary/bin/dsqn:system/bin/dsqn \
     $(LOCAL_PATH)/proprietary/bin/dun-server:system/bin/dun-server \
     $(LOCAL_PATH)/proprietary/bin/ecryptfs-run:system/bin/ecryptfs-run \
@@ -235,7 +243,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/fmconfig:system/bin/fmconfig \
     $(LOCAL_PATH)/proprietary/bin/fm_qsoc_patches:system/bin/fm_qsoc_patches \
     $(LOCAL_PATH)/proprietary/bin/ftmdaemon:system/bin/ftmdaemon \
-    $(LOCAL_PATH)/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init \
     $(LOCAL_PATH)/proprietary/bin/immvibed_f6_2v:system/bin/immvibed_f6_2v \
     $(LOCAL_PATH)/proprietary/bin/immvibed_f6_3v:system/bin/immvibed_f6_3v \
     $(LOCAL_PATH)/proprietary/bin/imsdatadaemon:system/bin/imsdatadaemon \
@@ -259,15 +266,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/mm-mpo-dec-test:system/bin/mm-mpo-dec-test \
     $(LOCAL_PATH)/proprietary/bin/mm-mpo-enc-test:system/bin/mm-mpo-enc-test \
     $(LOCAL_PATH)/proprietary/bin/mm-pp-daemon:system/bin/mm-pp-daemon \
-    $(LOCAL_PATH)/proprietary/bin/mm-qcamera-app:system/bin/mm-qcamera-app \
-    $(LOCAL_PATH)/proprietary/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon \
-    $(LOCAL_PATH)/proprietary/bin/mm-qcamera-test:system/bin/mm-qcamera-test \
-    $(LOCAL_PATH)/proprietary/bin/mm-qcamera-testsuite-client:system/bin/mm-qcamera-testsuite-client \
-    $(LOCAL_PATH)/proprietary/bin/morningcall:system/bin/morningcall \
     $(LOCAL_PATH)/proprietary/bin/mpdecision:system/bin/mpdecision \
     $(LOCAL_PATH)/proprietary/bin/mtsd:system/bin/mtsd \
     $(LOCAL_PATH)/proprietary/bin/nbtscan:system/bin/nbtscan \
-    $(LOCAL_PATH)/proprietary/bin/netmgrd:system/bin/netmgrd \
     $(LOCAL_PATH)/proprietary/bin/nfskillprocess:system/bin/nfskillprocess \
     $(LOCAL_PATH)/proprietary/bin/nfsserversetup:system/bin/nfsserversetup \
     $(LOCAL_PATH)/proprietary/bin/nl_listener:system/bin/nl_listener \
@@ -278,8 +279,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/port-bridge:system/bin/port-bridge \
     $(LOCAL_PATH)/proprietary/bin/profiler_daemon:system/bin/profiler_daemon \
     $(LOCAL_PATH)/proprietary/bin/qcks:system/bin/qcks \
-    $(LOCAL_PATH)/proprietary/bin/qmiproxy:system/bin/qmiproxy \
-    $(LOCAL_PATH)/proprietary/bin/qmuxd:system/bin/qmuxd \
     $(LOCAL_PATH)/proprietary/bin/qseecomd:system/bin/qseecomd \
     $(LOCAL_PATH)/proprietary/bin/qseecom_sample_client:system/bin/qseecom_sample_client \
     $(LOCAL_PATH)/proprietary/bin/qseecom_security_test:system/bin/qseecom_security_test \
@@ -309,17 +308,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/v4l2-qcamera-app:system/bin/v4l2-qcamera-app \
     $(LOCAL_PATH)/proprietary/bin/wdsdaemon:system/bin/wdsdaemon \
     $(LOCAL_PATH)/proprietary/bin/wl:system/bin/wl \
-    $(LOCAL_PATH)/proprietary/etc/app_audio_config.xml:system/etc/app_audio_config.xml \
-    $(LOCAL_PATH)/proprietary/etc/app-enabled-conf.json:system/etc/app-enabled-conf.json \
-    $(LOCAL_PATH)/proprietary/etc/brunch_featureinfo.xml:system/etc/brunch_featureinfo.xml \
-    $(LOCAL_PATH)/proprietary/etc/brunch_featureinfo_ex.xml:system/etc/brunch_featureinfo_ex.xml \
-    $(LOCAL_PATH)/proprietary/etc/brunch_featureswitch.xml:system/etc/brunch_featureswitch.xml \
-    $(LOCAL_PATH)/proprietary/etc/brunch_featureswitch_ex.xml:system/etc/brunch_featureswitch_ex.xml \
-    $(LOCAL_PATH)/proprietary/etc/brunch_media_codec_ex.xml:system/etc/brunch_media_codec_ex.xml \
-    $(LOCAL_PATH)/proprietary/etc/brunch_notusedcodecs.xml:system/etc/brunch_notusedcodecs.xml \
-    $(LOCAL_PATH)/proprietary/etc/brunch_notusedcodecs_ex.xml:system/etc/brunch_notusedcodecs_ex.xml \
-    $(LOCAL_PATH)/proprietary/etc/brunch_player_list.xml:system/etc/brunch_player_list.xml \
-    $(LOCAL_PATH)/proprietary/etc/brunch_player_list_ex.xml:system/etc/brunch_player_list_ex.xml \
     $(LOCAL_PATH)/proprietary/etc/clatd_45000.conf:system/etc/clatd_45000.conf \
     $(LOCAL_PATH)/proprietary/etc/com.lge.music.xml:system/etc/com.lge.music.xml \
     $(LOCAL_PATH)/proprietary/etc/com.lge.streamingplayer.xml:system/etc/com.lge.streamingplayer.xml \
@@ -342,19 +330,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/settings.xml:system/etc/settings.xml \
     $(LOCAL_PATH)/proprietary/etc/telephony.xml:system/etc/telephony.xml \
     $(LOCAL_PATH)/proprietary/etc/vold.fstab:system/etc/vold.fstab \
-    $(LOCAL_PATH)/proprietary/etc/firmware/cyttsp_8064_mtp.hex:system/etc/firmware/cyttsp_8064_mtp.hex \
-    $(LOCAL_PATH)/proprietary/etc/firmware/cyttsp_8960_cdp.hex:system/etc/firmware/cyttsp_8960_cdp.hex \
     $(LOCAL_PATH)/proprietary/lib/libAppDataSearch.so:system/lib/libAppDataSearch.so \
     $(LOCAL_PATH)/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \
     $(LOCAL_PATH)/proprietary/lib/libbluedroid_bdt.so:system/lib/libbluedroid_bdt.so \
     $(LOCAL_PATH)/proprietary/lib/libbluetooth_jni2.so:system/lib/libbluetooth_jni2.so \
     $(LOCAL_PATH)/proprietary/lib/libbluetoothsettings_jni.so:system/lib/libbluetoothsettings_jni.so \
-    $(LOCAL_PATH)/proprietary/lib/libbrunch.so:system/lib/libbrunch.so \
     $(LOCAL_PATH)/proprietary/lib/libbson.so:system/lib/libbson.so \
     $(LOCAL_PATH)/proprietary/lib/libbt-codec_aptx.so:system/lib/libbt-codec_aptx.so \
     $(LOCAL_PATH)/proprietary/lib/libbtlgeext_jni.so:system/lib/libbtlgeext_jni.so \
     $(LOCAL_PATH)/proprietary/lib/libbtnv.so:system/lib/libbtnv.so \
-    $(LOCAL_PATH)/proprietary/lib/libchrome.1847.114.so:system/lib/libchrome.1847.114.so \
     $(LOCAL_PATH)/proprietary/lib/libcneapiclient.so:system/lib/libcneapiclient.so \
     $(LOCAL_PATH)/proprietary/lib/libcnefeatureconfig.so:system/lib/libcnefeatureconfig.so \
     $(LOCAL_PATH)/proprietary/lib/libcneqmiutils.so:system/lib/libcneqmiutils.so \
@@ -364,7 +348,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libconfigdb.so:system/lib/libconfigdb.so \
     $(LOCAL_PATH)/proprietary/lib/libcorkscrew2.so:system/lib/libcorkscrew2.so \
     $(LOCAL_PATH)/proprietary/lib/libcrashreporter.so:system/lib/libcrashreporter.so \
-    $(LOCAL_PATH)/proprietary/lib/libcsd-client.so:system/lib/libcsd-client.so \
     $(LOCAL_PATH)/proprietary/lib/libcurl.so:system/lib/libcurl.so \
     $(LOCAL_PATH)/proprietary/lib/libdhwr.so:system/lib/libdhwr.so \
     $(LOCAL_PATH)/proprietary/lib/libdiagd_client.so:system/lib/libdiagd_client.so \
@@ -404,7 +387,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libgcastv2_base.so:system/lib/libgcastv2_base.so \
     $(LOCAL_PATH)/proprietary/lib/libgcastv2_support.so:system/lib/libgcastv2_support.so \
     $(LOCAL_PATH)/proprietary/lib/libgcrypt.so:system/lib/libgcrypt.so \
-    $(LOCAL_PATH)/proprietary/lib/libgemini.so:system/lib/libgemini.so \
     $(LOCAL_PATH)/proprietary/lib/libgnu.so:system/lib/libgnu.so \
     $(LOCAL_PATH)/proprietary/lib/libgoogle_hotword_jni.so:system/lib/libgoogle_hotword_jni.so \
     $(LOCAL_PATH)/proprietary/lib/libgoogle_recognizer_jni_l.so:system/lib/libgoogle_recognizer_jni_l.so \
@@ -591,15 +573,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libxml.so:system/lib/libxml.so \
     $(LOCAL_PATH)/proprietary/lib/libxml2.so:system/lib/libxml2.so \
     $(LOCAL_PATH)/proprietary/lib/hw/bplus.default.so:system/lib/hw/bplus.default.so \
-    $(LOCAL_PATH)/proprietary/lib/hw/camera.msm8960.so:system/lib/hw/camera.msm8960.so \
     $(LOCAL_PATH)/proprietary/lib/hw/gps.default.so:system/lib/hw/gps.default.so \
     $(LOCAL_PATH)/proprietary/lib/hw/lights.msm8960.so:system/lib/hw/lights.msm8960.so \
     $(LOCAL_PATH)/proprietary/lib/hw/nfc_lg.default.so:system/lib/hw/nfc_lg.default.so \
-    $(LOCAL_PATH)/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so \
-    $(LOCAL_PATH)/proprietary/lib/hw/sensors_qcom.so:system/lib/hw/sensors_qcom.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libalarmservice_jni.so:system/vendor/lib/libalarmservice_jni.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libc2d2_a3xx.so:system/vendor/lib/libc2d2_a3xx.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libc2d2_z180.so:system/vendor/lib/libc2d2_z180.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libdiag.so:system/vendor/lib/libdiag.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-dplmedia.so:system/vendor/lib/lib-dplmedia.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libdrmdecrypt.so:system/vendor/lib/libdrmdecrypt.so \
@@ -632,7 +609,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-rtpcore.so:system/vendor/lib/lib-rtpcore.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-rtpdaemoninterface.so:system/vendor/lib/lib-rtpdaemoninterface.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-rtpsl.so:system/vendor/lib/lib-rtpsl.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libsc-a2xx.so:system/vendor/lib/libsc-a2xx.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libspl_proc_plugin.so:system/vendor/lib/libspl_proc_plugin.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libstlport_sh_r8e.so:system/vendor/lib/libstlport_sh_r8e.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libsweskia.so:system/vendor/lib/libsweskia.so \
@@ -643,3 +619,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/vendor/lib/libwvdrm_L1.so:system/vendor/lib/libwvdrm_L1.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libWVStreamControlAPI_L1.so:system/vendor/lib/libWVStreamControlAPI_L1.so
+
+# Radio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/bin/ds_fmc_appd:system/bin/ds_fmc_appd \
+    $(LOCAL_PATH)/proprietary/bin/netmgrd:system/bin/netmgrd \
+    $(LOCAL_PATH)/proprietary/bin/qmiproxy:system/bin/qmiproxy \
+    $(LOCAL_PATH)/proprietary/bin/qmuxd:system/bin/qmuxd \
