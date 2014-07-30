@@ -235,7 +235,7 @@ set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/etc/init.d");
 set_perm(0, 0, 0644, "/system/etc/init.ath3k.bt.sh");
 set_perm(0, 0, 0644, "/system/etc/init.crda.sh");
-set_perm(0, 0, 0644, "/system/etc/init.engdo.audio.sh");
+set_perm(0, 0, 0644, "/system/etc/init.qcom.audio.sh");
 set_perm(0, 0, 0644, "/system/etc/init.engdo.bt.sh");
 set_perm(0, 0, 0644, "/system/etc/init.engdo.btdun.sh");
 set_perm(0, 0, 0644, "/system/etc/init.engdo.coex.sh");

@@ -56,7 +56,20 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libmm-color-convertor.so:system/lib/libmm-color-convertor.so
 
 # Audio
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    $(LOCAL_PATH)/proprietary/etc/audio_policy_8064.conf:system/etc/audio_policy_8064.conf \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.audio.sh:system/etc/init.qcom.audio.sh \
+    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm:system/etc/snd_soc_msm/snd_soc_msm \
+    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
+    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
+    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_Sitar:system/etc/snd_soc_msm/snd_soc_msm_Sitar \
+    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_Taiko:system/etc/snd_soc_msm/snd_soc_msm_Taiko \
+    $(LOCAL_PATH)/proprietary/lib/libacdbloader.so:system/lib/libacdbloader.so \
+    $(LOCAL_PATH)/proprietary/lib/libaudcal.so:system/lib/libaudcal.so \
+    $(LOCAL_PATH)/proprietary/lib/libcsd-client.so:system/lib/libcsd-client.so \
+    $(LOCAL_PATH)/proprietary/lib/hw/audio.primary.mpq8064.so:system/lib/hw/audio.primary.mpq8064.so \
+    $(LOCAL_PATH)/proprietary/lib/hw/audio_policy.mpq8064.so:system/lib/hw/audio_policy.mpq8064.so
 
 
 # Media
@@ -110,7 +123,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \
     $(LOCAL_PATH)/proprietary/etc/init.crda.sh:system/etc/init.crda.sh \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.audio.sh:system/etc/init.engdo.audio.sh \
     $(LOCAL_PATH)/proprietary/etc/init.engdo.bt.sh:system/etc/init.engdo.bt.sh \
     $(LOCAL_PATH)/proprietary/etc/init.engdo.btdun.sh:system/etc/init.engdo.btdun.sh \
     $(LOCAL_PATH)/proprietary/etc/init.engdo.coex.sh:system/etc/init.engdo.coex.sh \
@@ -248,7 +260,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/wl:system/bin/wl \
     $(LOCAL_PATH)/proprietary/etc/app_audio_config.xml:system/etc/app_audio_config.xml \
     $(LOCAL_PATH)/proprietary/etc/app-enabled-conf.json:system/etc/app-enabled-conf.json \
-    $(LOCAL_PATH)/proprietary/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/proprietary/etc/brunch_featureinfo.xml:system/etc/brunch_featureinfo.xml \
     $(LOCAL_PATH)/proprietary/etc/brunch_featureinfo_ex.xml:system/etc/brunch_featureinfo_ex.xml \
     $(LOCAL_PATH)/proprietary/etc/brunch_featureswitch.xml:system/etc/brunch_featureswitch.xml \
@@ -309,25 +320,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/firmware/vidc.b03:system/etc/firmware/vidc.b03 \
     $(LOCAL_PATH)/proprietary/etc/firmware/vidc.mdt:system/etc/firmware/vidc.mdt \
     $(LOCAL_PATH)/proprietary/etc/firmware/vidcfw.elf:system/etc/firmware/vidcfw.elf \
-    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
-    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_2x_auxpcm:system/etc/snd_soc_msm/snd_soc_msm_2x_auxpcm \
-    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3_auxpcm:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3_auxpcm \
-    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_auxpcm:system/etc/snd_soc_msm/snd_soc_msm_auxpcm \
-    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_I2S:system/etc/snd_soc_msm/snd_soc_msm_I2S \
-    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_I2SFusion:system/etc/snd_soc_msm/snd_soc_msm_I2SFusion \
-    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_Sitar:system/etc/snd_soc_msm/snd_soc_msm_Sitar \
-    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_Sitar_auxpcm:system/etc/snd_soc_msm/snd_soc_msm_Sitar_auxpcm \
-    $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_Sitar_Sglte:system/etc/snd_soc_msm/snd_soc_msm_Sitar_Sglte \
-    $(LOCAL_PATH)/proprietary/lib/libacdbloader.so:system/lib/libacdbloader.so \
-    $(LOCAL_PATH)/proprietary/lib/libadsprpc.so:system/lib/libadsprpc.so \
-    $(LOCAL_PATH)/proprietary/lib/libalsautils.so:system/lib/libalsautils.so \
     $(LOCAL_PATH)/proprietary/lib/libAppDataSearch.so:system/lib/libAppDataSearch.so \
-    $(LOCAL_PATH)/proprietary/lib/libaudcal.so:system/lib/libaudcal.so \
-    $(LOCAL_PATH)/proprietary/lib/libaudioalsa.so:system/lib/libaudioalsa.so \
-    $(LOCAL_PATH)/proprietary/lib/libaudioeffectsole.so:system/lib/libaudioeffectsole.so \
-    $(LOCAL_PATH)/proprietary/lib/libaudiohookclient.so:system/lib/libaudiohookclient.so \
-    $(LOCAL_PATH)/proprietary/lib/libaudioparsers.so:system/lib/libaudioparsers.so \
     $(LOCAL_PATH)/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \
     $(LOCAL_PATH)/proprietary/lib/libbluedroid_bdt.so:system/lib/libbluedroid_bdt.so \
     $(LOCAL_PATH)/proprietary/lib/libbluetooth_jni2.so:system/lib/libbluetooth_jni2.so \
