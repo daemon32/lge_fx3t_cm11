@@ -307,42 +307,12 @@ service rmt_storage /system/bin/rmt_storage
 on property:ro.boot.emmc=true
     start rmt_storage
 
-service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
-    class core
-    user root
-    oneshot
-
-service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin
-    disabled
-    oneshot
-
-on property:bluetooth.hciattach=true
-    start hciattach
-
-on property:bluetooth.hciattach=false
-    setprop bluetooth.status off
-
-
 service hciattach_ath3k /system/bin/sh /system/etc/init.ath3k.bt.sh
      class late_start
      user bluetooth
      group system bluetooth net_bt_admin misc
      disabled
      oneshot
-
-#ZTE BT TESTMODE  bluetooth
-service bttestmode /system/bin/sh /system/bin/bt_testmode_new.sh
-    user root
-    oneshot
-    disabled  
-
-service btsspdebugmode /system/bin/sh /system/bin/bt_ssp_debug_mode.sh
-    user root
-    oneshot
-    disabled
 
 service bt-sap /system/bin/sapd 15
     user bluetooth
@@ -395,15 +365,6 @@ on property:ro.use_data_netmgrd=false
 # but only if ro.data.large_tcp_window_size property is set.
 on property:ro.data.large_tcp_window_size=true
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
-
-service btwlancoex /system/bin/sh /system/etc/init.qcom.coex.sh
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin inet net_admin net_raw
-    disabled
-    oneshot
-
-
 
 service p2p_supplicant /system/bin/wpa_supplicant \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
@@ -485,37 +446,6 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service wiperiface /system/bin/wiperiface
-    class late_start
-    user gps
-    group gps qcom_oncrpc net_raw
-    oneshot
-
-service quipc_igsn /system/bin/quipc_igsn
-    class late_start
-    user gps
-    group inet gps
-    disabled
-
-service quipc_main /system/bin/quipc_main
-    class late_start
-    user gps
-    group gps net_admin wifi inet
-    disabled
-
-service location_mq /system/bin/location-mq
-    class late_start
-    user gps
-    group gps
-    disabled
-
-service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
-    class late_start
-    user root
-    group system
-    disabled
-    oneshot
-
 on property:crypto.driver.load=1
     insmod /system/lib/modules/qce.ko
     insmod /system/lib/modules/qcedev.ko
@@ -541,29 +471,11 @@ service qcom-sh /system/bin/sh /init.qcom.sh
     user root
     oneshot
 
-service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-
-service wifi-sdio-on /system/bin/sh /system/etc/init.qcom.sdio.sh
-    class late_start
-    group wifi inet
-    disabled
-    oneshot
-
 service wifi-crda /system/bin/sh /system/etc/init.crda.sh
    class late_start
    user root
    disabled
    oneshot
-
-on property:sys.boot_completed=1
-    start qcom-post-boot
-#ZTE_LC_IP_DEBUG, 20130625 start
-    chown system system /sys/kernel/debug/tcp_output_debug/enable_debug
-#ZTE_LC_IP_DEBUG, 20130625 end
 
 service ppd /system/bin/mm-pp-daemon
     class late_start
@@ -591,10 +503,6 @@ on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
-service secril-daemon /system/bin/sec-ril
-    class main
-    user root
-    group radio cache inet misc audio sdcard_rw qcom_diag log
 
 service ril-daemon1 /system/bin/rild -c 1
     class main
@@ -620,14 +528,6 @@ service fuse_usbdisk /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usbdisk
 on property:ro.fuse_sdcard=true
     start sdcard
 
-#lianghouxing add qcom-post-ftm for LOW POWER
-service qcom-post-ftm /system/bin/sh /system/etc/init.qcom.post_boot_ftm.sh
-    class late_start
-    user root 
-    disabled
-    oneshot  	
-	
-
 # This will make sure that sdcard service starts as late_start.
 on nonencrypted
     setprop ro.fuse_sdcard ${persist.fuse_sdcard}
@@ -635,18 +535,9 @@ on nonencrypted
 on property:vold.decrypt=trigger_restart_framework
     setprop ro.fuse_sdcard ${persist.fuse_sdcard}
 
-service hcidump /system/bin/sh /system/etc/hcidump.sh
-    user bluetooth
-    group bluetooth system net_bt_admin net_admin
-    disabled
-    oneshot
 
 service charger /charger
     class charger
-
-	#lianghouxing add qcom-post-ftm for LOW POWER
-on property:sys.boot_completed_ftm=1
-    start qcom-post-ftm
 	
 # Restart adbd so it can run as root
 on property:service.adb.root=1

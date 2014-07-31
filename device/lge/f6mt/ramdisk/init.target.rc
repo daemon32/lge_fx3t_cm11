@@ -84,10 +84,6 @@ on fs_selinux
     mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower dmask=0006 fmask=0006 umask=0006,gid=1000,context=u:object_r:firmware:s0
 
 on boot
-	#ZTE_ALSPRX_001  start  
-    mkdir /data/misc/prox 0777 radio radio   
-    chmod 0664  /dev/taos    
-	#ZTE_ALSPRX_001  end
 
     write /sys/devices/i2c-3/3-0024/cyttsp_update_fw 1
     write /sys/devices/i2c-3/3-005b/update_fw 1
@@ -372,17 +368,6 @@ on post-fs-data
     chmod 664 /sys/power/cpufreq_table
     chmod 664 /sys/class/kgsl/kgsl-3d0/max_pwrlevel
 
-#ZTE_AKMD_FYA 20111020 +++++++++++++
-# Change owner&&group for AKM devices
-    chown system system /sys/class/compass/akm8962/enable_acc
-    chown system system /sys/class/compass/akm8962/enable_mag
-    chown system system /sys/class/compass/akm8962/enable_ori
-    chown system system /sys/class/compass/akm8962/delay_acc
-    chown system system /sys/class/compass/akm8962/delay_mag
-    chown system system /sys/class/compass/akm8962/delay_ori
-    chown system system /sys/class/compass/akm8962/accel
-#ZTE_AKMD_FYA 20111020 -------------
-
     # OTG Test
     chown system radio /sys/class/host_notify/usb_otg/booster
     chmod 0660 /sys/class/host_notify/usb_otg/booster
@@ -427,11 +412,6 @@ service thermald /system/bin/thermald
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     user root
     disabled
-
-service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
-   user system
-   group system
-   disabled
 
 service kickstart /system/bin/qcks -i /firmware/image/
     oneshot
@@ -480,40 +460,6 @@ service usf-post-boot /system/bin/sh /system/etc/usf_post_boot.sh
 
 on property:init.svc.bootanim=stopped
     start usf-post-boot
-
-	#ZTE_WANGZY_PROXIMITY_101014
-service proximity_init /system/bin/proximity.init -r
-    user system
-    group system radio
-    disabled
-    oneshot
-    
-on property:dev.bootcomplete=1
-    start proximity_init
-#ZTE_WANGZY_PROXIMITY_101014 
-
-#ZTE_AKMD_FYA 20111020 -------------
-service akmd /system/bin/akmd8962_new -m 5
-#    class main
-		class late_start
-    oneshot
-#ZTE_AKMD_fya 20111020 --------------
-
-
-
-
-
-service efsrestorecon /system/bin/restorecon -R /efs
-    class late_start
-    user root
-    group root
-    disabled
-    oneshot
-
-service geomagneticd /system/bin/geomagneticd
-    class main
-    user compass
-    group system input
 
 service time_daemon /system/bin/time_daemon
    class late_start
