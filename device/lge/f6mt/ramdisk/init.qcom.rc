@@ -518,53 +518,6 @@ service iprenew_bt-pan /system/bin/dhcpcd -n
     class main
     disabled
     oneshot
-service gpsone_daemon /system/bin/gpsone_daemon
-    class late_start
-    user gps
-    group gps qcom_oncrpc inet net_raw
-    disabled
-
-service gpsone_daemon /system/bin/gpsone_daemon
-    class late_start
-    user gps
-    group gps qcom_oncrpc inet net_raw
-    disabled
-
-service quipc_igsn /system/bin/quipc_igsn
-    class late_start
-    user gps
-    group inet gps
-    disabled
-
-service quipc_main /system/bin/quipc_main
-    class late_start
-    user gps
-    group gps net_admin wifi inet
-    disabled
-
-service location_mq /system/bin/location-mq
-    class late_start
-    user gps
-    group gps
-    disabled
-
-service xtwifi_inet /system/bin/xtwifi-inet-agent
-    class late_start
-    user gps
-    group inet gps
-    disabled
-
-service xtwifi_client /system/bin/xtwifi-client
-    class late_start
-    user gps
-    group net_admin wifi inet gps
-    disabled
-
-service lowi-server /system/bin/lowi-server
-    class late_start
-    user gps
-    group gps net_admin wifi inet
-    disabled
 
 service fm_dl /system/bin/sh /system/etc/init.engdo.fm.sh
     class late_start
@@ -574,12 +527,12 @@ service fm_dl /system/bin/sh /system/etc/init.engdo.fm.sh
     oneshot
 
 on property:crypto.driver.load=1
-     insmod /system/lib/modules/qce.ko
+     insmod /system/lib/modules/qce40.ko
      insmod /system/lib/modules/qcedev.ko
 
 on property:crypto.driver.load=0
      exec /system/bin/rmmod qcedev.ko
-     exec /system/bin/rmmod qce.ko
+     exec /system/bin/rmmod qce40.ko
 
 service drmdiag /system/bin/drmdiagapp
     class late_start
@@ -605,33 +558,28 @@ service qcom-post-boot /system/bin/sh /system/etc/init.engdo.post_boot.sh
     oneshot
 
 # LGE_CHANGE_S, [WiFi][jaeoh.oh@lge.com], 2014-03-27, Block unnecessary service
-#service wifi-sdio-on /system/bin/sh /system/etc/init.engdo.sdio.sh
-#    class late_start
-#    group wifi inet
-#    disabled
-#    oneshot
+service wifi-sdio-on /system/bin/sh /system/etc/init.engdo.sdio.sh
+    class late_start
+    group wifi inet
+    disabled
+    oneshot
 
-#service wifi-crda /system/bin/sh /system/etc/init.crda.sh
-#   class late_start
-#   user root
-#   disabled
-#   oneshot
+service wifi-crda /system/bin/sh /system/etc/init.crda.sh
+   class late_start
+   user root
+   disabled
+   oneshot
 # LGE_CHANGE_E, [WiFi][jaeoh.oh@lge.com], 2014-03-27, Block unnecessary service
 
 on property:sys.boot_completed=1
     start qcom-post-boot
 
 # disable atfwd because it is no longer used.
-#service atfwd /system/bin/ATFWD-daemon
-#    class late_start
-#    user system
-#    group system radio
-#    onrestart /system/bin/log -t RIL-ATFWD -p w "ATFWD daemon restarted"
-
-service hdmid /system/bin/hdmid
+service atfwd /system/bin/ATFWD-daemon
     class late_start
-    socket hdmid stream 0660 root system graphics
-    disabled
+    user system
+    group system radio
+    onrestart /system/bin/log -t RIL-ATFWD -p w "ATFWD daemon restarted"
 
 service ppd /system/bin/mm-pp-daemon
     class late_start
@@ -655,22 +603,12 @@ service ds_fmc_appd /system/bin/ds_fmc_appd -p "rmnet0" -D
 on property:persist.data.ds_fmc_app.mode=1
     start ds_fmc_appd
 
-service ims_regmanager /system/bin/exe-ims-regmanagerprocessnative
-    class late_start
-    group qcom_oncrpc net_bt_admin inet radio wifi
-    disabled
-
 on property:persist.ims.regmanager.mode=1
     start ims_regmanager
 
 on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
-
-service battery_monitor /system/bin/battery_monitor
-    user system
-    group system
-    disabled
 
 service ril-daemon1 /system/bin/rild -c 1
     class main
@@ -708,13 +646,6 @@ on nonencrypted
 
 on property:vold.decrypt=trigger_restart_framework
     setprop ro.fuse_sdcard ${persist.fuse_sdcard}
-
-
-#service hcidump /system/bin/sh /system/etc/hcidump.sh
-#    user bluetooth
-#    group bluetooth system net_bt_admin net_admin
-#    disabled
-#    oneshot
 
 service charger /charger
     class charger

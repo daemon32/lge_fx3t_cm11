@@ -492,16 +492,6 @@ service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
    user root
    disabled
 
-service rf4ce /system/bin/rf4ce
-   class main
-   user root
-   group root
-
-service qosmgrd /system/bin/qosmgr /system/etc/qosmgr_rules.xml
-   user system
-   group system
-   disabled
-
 service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     user root
     disabled
@@ -535,39 +525,12 @@ on property:ro.baseband=sglte
     mkdir /data/misc/mdmhelperdata 0700
     start mdm_helper
 
-service xtwifi_inet /system/bin/xtwifi-inet-agent
-    class late_start
-    user gps
-    group inet gps
-    disabled
-
-service xtwifi_client /system/bin/xtwifi-client
-    class late_start
-    user gps
-    group net_admin wifi inet gps
-    disabled
-
 service usf_tester /system/bin/usf_tester
     user system
     group system inet
     disabled
 
 service usf_epos /system/bin/usf_epos
-    user system
-    group system inet
-    disabled
-
-service usf_gesture /system/bin/usf_gesture
-    user system
-    group system inet
-    disabled
-
-service usf_p2p /system/bin/usf_p2p
-    user system
-    group system inet
-    disabled
-
-service usf_hovering /system/bin/usf_hovering
     user system
     group system inet
     disabled
@@ -677,19 +640,6 @@ service bugreport /system/bin/dumpstate -d -p -B \
 
 on property:persist.timed.enable=true
     start time_daemon
-
-service battery_monitor /system/bin/battery_monitor
-    user system
-    group system
-    disabled
-
-service ril-daemon1 /system/bin/rild -c 1
-    class main
-    socket rild1 stream 660 root radio
-    socket rild-debug1 stream 660 radio system
-    user root
-    disabled
-    group radio cache inet misc audio sdcard_rw qcom_oncrpc diag
 
 service thermal_enable /system/bin/thermald --config-file /system/etc/thermald-8930.conf
 	class late_start
