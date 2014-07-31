@@ -21,14 +21,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ramdisk/res/images/charger/battery_4.png:root/res/images/charger/battery_4.png \
     $(LOCAL_PATH)/ramdisk/res/images/charger/battery_5.png:root/res/images/charger/battery_5.png \
     $(LOCAL_PATH)/ramdisk/res/images/charger/battery_charge.png:root/res/images/charger/battery_charge.png \
-    $(LOCAL_PATH)/ramdisk/res/images/charger/battery_fail.png:root/res/images/charger/battery_fail.png
+    $(LOCAL_PATH)/ramdisk/res/images/charger/battery_fail.png:root/res/images/charger/battery_fail.png \
 
 # Recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
     $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/system/bin/postrecoveryboot.sh \
     $(LOCAL_PATH)/recovery/root/init.recovery.qcom.rc:recovery/root/init.recovery.qcom.rc \
-    $(LOCAL_PATH)/recovery/root/init.recovery.rc:recovery/root/init.recovery.rc
+    $(LOCAL_PATH)/recovery/root/init.recovery.rc:recovery/root/init.recovery.rc \
 
 # Graphics
 PRODUCT_COPY_FILES += \
@@ -59,7 +59,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/proprietary/etc/audio_policy_8064.conf:system/etc/audio_policy_8064.conf \
-    $(LOCAL_PATH)/proprietary/etc/init.qcom.audio.sh:system/etc/init.qcom.audio.sh \
     $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm:system/etc/snd_soc_msm/snd_soc_msm \
     $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
     $(LOCAL_PATH)/proprietary/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
@@ -69,7 +68,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libaudcal.so:system/lib/libaudcal.so \
     $(LOCAL_PATH)/proprietary/lib/libcsd-client.so:system/lib/libcsd-client.so \
     $(LOCAL_PATH)/proprietary/lib/hw/audio.primary.mpq8064.so:system/lib/hw/audio.primary.mpq8064.so \
-    $(LOCAL_PATH)/proprietary/lib/hw/audio_policy.mpq8064.so:system/lib/hw/audio_policy.mpq8064.so
+    $(LOCAL_PATH)/proprietary/lib/hw/audio_policy.mpq8064.so:system/lib/hw/audio_policy.mpq8064.so \
 
 
 # Media
@@ -79,7 +78,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/firmware/vidc.b02:system/etc/firmware/vidc.b02 \
     $(LOCAL_PATH)/proprietary/etc/firmware/vidc.b03:system/etc/firmware/vidc.b03 \
     $(LOCAL_PATH)/proprietary/etc/firmware/vidc.mdt:system/etc/firmware/vidc.mdt \
-    $(LOCAL_PATH)/proprietary/etc/firmware/vidcfw.elf:system/etc/firmware/vidcfw.elf
+    $(LOCAL_PATH)/proprietary/etc/firmware/vidcfw.elf:system/etc/firmware/vidcfw.elf \
 
 # Camera
 PRODUCT_COPY_FILES += \
@@ -132,6 +131,29 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/hw/camera.msm8960.so:system/lib/hw/camera.msm8960.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-imscamera.so:system/vendor/lib/lib-imscamera.so \
 
+# Radio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/bin/ds_fmc_appd:system/bin/ds_fmc_appd \
+    $(LOCAL_PATH)/proprietary/bin/mdm_helper:system/bin/mdm_helper \
+    $(LOCAL_PATH)/proprietary/bin/netmgrd:system/bin/netmgrd \
+    $(LOCAL_PATH)/proprietary/bin/qmiproxy:system/bin/qmiproxy \
+    $(LOCAL_PATH)/proprietary/bin/qmuxd:system/bin/qmuxd \
+    $(LOCAL_PATH)/proprietary/bin/rmt_storage:system/bin/rmt_storage \
+    $(LOCAL_PATH)/proprietary/lib/libqcci_adc.so:system/lib/libqcci_adc.so \
+    $(LOCAL_PATH)/proprietary/lib/libqcci_legacy.so:system/lib/libqcci_legacy.so \
+    $(LOCAL_PATH)/proprietary/lib/libqdi.so:system/lib/libqdi.so \
+    $(LOCAL_PATH)/proprietary/lib/libqmi.so:system/lib/libqmi.so \
+    $(LOCAL_PATH)/proprietary/lib/libqmi_client_qmux.so:system/lib/libqmi_client_qmux.so \
+    $(LOCAL_PATH)/proprietary/lib/libqmi_csvt_srvc.so:system/lib/libqmi_csvt_srvc.so \
+    $(LOCAL_PATH)/proprietary/lib/libqmiservices.so:system/lib/libqmiservices.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libdiag.so:system/vendor/lib/libdiag.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_cci.so:system/vendor/lib/libqmi_cci.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_common_so.so:system/vendor/lib/libqmi_common_so.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_csi.so:system/vendor/lib/libqmi_csi.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_encdec.so:system/vendor/lib/libqmi_encdec.so \
+    $(LOCAL_PATH)/proprietary/vendor/lib/libqmodem_plugin.so:system/vendor/lib/libqmodem_plugin.so \
+
+
 # Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/dhd:system/bin/dhd \
@@ -147,14 +169,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/wifi/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
     $(LOCAL_PATH)/proprietary/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/proprietary/etc/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/proprietary/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    $(LOCAL_PATH)/proprietary/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
 
 # Bluetooth
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/BCM4334B0_002.001.013.1123.1127.hcd:system/bin/BCM4334B0_002.001.013.1123.1127.hcd \
     $(LOCAL_PATH)/proprietary/bin/brcm_patchram_plus:system/bin/brcm_patchram_plus \
     $(LOCAL_PATH)/proprietary/bin/btnvtool:system/bin/btnvtool \
-    $(LOCAL_PATH)/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init
+    $(LOCAL_PATH)/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init \
 
 # GPS
 #PRODUCT_COPY_FILES += \
@@ -166,18 +188,18 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/time_daemon:system/bin/time_daemon \
     $(LOCAL_PATH)/proprietary/lib/libtime_genoff.so:obj/lib/libtime_genoff.so \
-    $(LOCAL_PATH)/proprietary/lib/libtime_genoff.so:system/lib/libtime_genoff.so
+    $(LOCAL_PATH)/proprietary/lib/libtime_genoff.so:system/lib/libtime_genoff.so \
 
 
 
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so \
-    $(LOCAL_PATH)/proprietary/lib/hw/sensors_qcom.so:system/lib/hw/sensors_qcom.so
+    $(LOCAL_PATH)/proprietary/lib/hw/sensors_qcom.so:system/lib/hw/sensors_qcom.so \
 
 # Perf
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so
+    $(LOCAL_PATH)/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so \
 
 
 # Keylayouts \ Keychars
@@ -193,13 +215,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/usr/keylayout/philips_remote_ir.kl:system/usr/keylayout/philips_remote_ir.kl \
     $(LOCAL_PATH)/proprietary/usr/keylayout/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
     $(LOCAL_PATH)/proprietary/usr/keylayout/samsung_remote_ir.kl:system/usr/keylayout/samsung_remote_ir.kl \
-    $(LOCAL_PATH)/proprietary/usr/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl
+    $(LOCAL_PATH)/proprietary/usr/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl \
 
 # Touch Screen
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/firmware/cyttsp_8064_mtp.hex:system/etc/firmware/cyttsp_8064_mtp.hex \
     $(LOCAL_PATH)/proprietary/etc/firmware/cyttsp_8960_cdp.hex:system/etc/firmware/cyttsp_8960_cdp.hex \
-    $(LOCAL_PATH)/proprietary/usr/idc/melfas-ts.idc:system/usr/idc/melfas-ts.idc
+    $(LOCAL_PATH)/proprietary/usr/idc/melfas-ts.idc:system/usr/idc/melfas-ts.idc \
 
 # Thermal
 PRODUCT_COPY_FILES += \
@@ -213,18 +235,25 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/thermal-engine-8064.conf:system/etc/thermal-engine-8064.conf \
     $(LOCAL_PATH)/proprietary/etc/thermal-engine-8064ab.conf:system/etc/thermal-engine-8064ab.conf \
     $(LOCAL_PATH)/proprietary/etc/thermal-engine-8930.conf:system/etc/thermal-engine-8930.conf \
-    $(LOCAL_PATH)/proprietary/etc/thermal-engine-8960.conf:system/etc/thermal-engine-8960.conf
+    $(LOCAL_PATH)/proprietary/etc/thermal-engine-8960.conf:system/etc/thermal-engine-8960.conf \
 
 # Misc Etc scripts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \
     $(LOCAL_PATH)/proprietary/etc/init.crda.sh:system/etc/init.crda.sh \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.bt.sh:system/etc/init.engdo.bt.sh \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.btdun.sh:system/etc/init.engdo.btdun.sh \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.coex.sh:system/etc/init.engdo.coex.sh \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.efs.sync.sh:system/etc/init.engdo.efs.sync.sh \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.fm.sh:system/etc/init.engdo.fm.sh \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.post_boot.sh:system/etc/init.engdo.post_boot.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.audio.sh:system/etc/init.qcom.audio.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.bt.sh:system/etc/init.qcom.bt.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.btdun.sh:system/etc/init.qcom.btdun.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.coex.sh:system/etc/init.qcom.coex.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.fm.sh:system/etc/init.qcom.fm.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.sdio.sh:system/etc/init.qcom.sdio.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.thermald_conf.sh:system/etc/init.qcom.thermald_conf.sh \
+    $(LOCAL_PATH)/proprietary/etc/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh \
     $(LOCAL_PATH)/proprietary/etc/last_kmsg_backup.sh:system/etc/last_kmsg_backup.sh \
     $(LOCAL_PATH)/proprietary/etc/logging_android.sh:system/etc/logging_android.sh \
     $(LOCAL_PATH)/proprietary/etc/logging_android_apart.sh:system/etc/logging_android_apart.sh \
@@ -234,8 +263,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/etc/make_packet_log.sh:system/etc/make_packet_log.sh \
     $(LOCAL_PATH)/proprietary/etc/save_kernel_log.sh:system/etc/save_kernel_log.sh \
     $(LOCAL_PATH)/proprietary/etc/save_kernel_log_ats.sh:system/etc/save_kernel_log_ats.sh \
-    $(LOCAL_PATH)/proprietary/etc/usf_post_boot.sh:system/etc/usf_post_boot.sh	
-
+    $(LOCAL_PATH)/proprietary/etc/usf_post_boot.sh:system/etc/usf_post_boot.sh \
 
 # CALLED IN INIT.RC MAY NOT NEED
 #PRODUCT_COPY_FILES += \
@@ -595,29 +623,59 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/vendor/lib/libulp2.so:system/vendor/lib/libulp2.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libwvdrm_L1.so:system/vendor/lib/libwvdrm_L1.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libwvm.so:system/vendor/lib/libwvm.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libWVStreamControlAPI_L1.so:system/vendor/lib/libWVStreamControlAPI_L1.so
+    $(LOCAL_PATH)/proprietary/vendor/lib/libWVStreamControlAPI_L1.so:system/vendor/lib/libWVStreamControlAPI_L1.so \
 
-# Radio
+# UNSORTED FROM JB ROM MAY OR MAY NOT NEED
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/proprietary/bin/ds_fmc_appd:system/bin/ds_fmc_appd \
-    $(LOCAL_PATH)/proprietary/bin/mdm_helper:system/bin/mdm_helper \
-    $(LOCAL_PATH)/proprietary/bin/netmgrd:system/bin/netmgrd \
-    $(LOCAL_PATH)/proprietary/bin/qmiproxy:system/bin/qmiproxy \
-    $(LOCAL_PATH)/proprietary/bin/qmuxd:system/bin/qmuxd \
-    $(LOCAL_PATH)/proprietary/bin/rmt_storage:system/bin/rmt_storage \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.mdm_links.sh:system/etc/init.engdo.mdm_links.sh \
-    $(LOCAL_PATH)/proprietary/etc/init.engdo.modem_links.sh:system/etc/init.engdo.modem_links.sh \
-    $(LOCAL_PATH)/proprietary/lib/libqcci_adc.so:system/lib/libqcci_adc.so \
-    $(LOCAL_PATH)/proprietary/lib/libqcci_legacy.so:system/lib/libqcci_legacy.so \
-    $(LOCAL_PATH)/proprietary/lib/libqdi.so:system/lib/libqdi.so \
-    $(LOCAL_PATH)/proprietary/lib/libqmi.so:system/lib/libqmi.so \
-    $(LOCAL_PATH)/proprietary/lib/libqmi_client_qmux.so:system/lib/libqmi_client_qmux.so \
-    $(LOCAL_PATH)/proprietary/lib/libqmi_csvt_srvc.so:system/lib/libqmi_csvt_srvc.so \
-    $(LOCAL_PATH)/proprietary/lib/libqmiservices.so:system/lib/libqmiservices.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libdiag.so:system/vendor/lib/libdiag.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_cci.so:system/vendor/lib/libqmi_cci.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_common_so.so:system/vendor/lib/libqmi_common_so.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_csi.so:system/vendor/lib/libqmi_csi.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_encdec.so:system/vendor/lib/libqmi_encdec.so \
-    $(LOCAL_PATH)/proprietary/vendor/lib/libqmodem_plugin.so:system/vendor/lib/libqmodem_plugin.so \
+    $(LOCAL_PATH)/proprietary/bin/BCM4330B1_002.001.003.0967.1019.hcd:system/bin/BCM4330B1_002.001.003.0967.1019.hcd \
+    $(LOCAL_PATH)/proprietary/bin/bluetoothd:system/bin/bluetoothd \
+    $(LOCAL_PATH)/proprietary/bin/btld:system/bin/btld \
+    $(LOCAL_PATH)/proprietary/bin/cp:system/bin/cp \
+    $(LOCAL_PATH)/proprietary/bin/dbus-daemon:system/bin/dbus-daemon \
+    $(LOCAL_PATH)/proprietary/bin/diag_dci_client:system/bin/diag_dci_client \
+    $(LOCAL_PATH)/proprietary/bin/hciattach:system/bin/hciattach \
+    $(LOCAL_PATH)/proprietary/bin/location-mq:system/bin/location-mq \
+    $(LOCAL_PATH)/proprietary/bin/mcDriverDaemonQC:system/bin/mcDriverDaemonQC \
+    $(LOCAL_PATH)/proprietary/bin/mm-adec-omxaac-test:system/bin/mm-adec-omxaac-test \
+    $(LOCAL_PATH)/proprietary/bin/mm-aenc-omxaac-test:system/bin/mm-aenc-omxaac-test \
+    $(LOCAL_PATH)/proprietary/bin/mm-aenc-omxamr-test:system/bin/mm-aenc-omxamr-test \
+    $(LOCAL_PATH)/proprietary/bin/mm-aenc-omxevrc-test:system/bin/mm-aenc-omxevrc-test \
+    $(LOCAL_PATH)/proprietary/bin/mm-aenc-omxqcelp13-test:system/bin/mm-aenc-omxqcelp13-test \
+    $(LOCAL_PATH)/proprietary/bin/mm-gs-camctrl-test:system/bin/mm-gs-camctrl-test \
+    $(LOCAL_PATH)/proprietary/bin/mtsd_file_manager:system/bin/mtsd_file_manager \
+    $(LOCAL_PATH)/proprietary/bin/mtsd_kmsg:system/bin/mtsd_kmsg \
+    $(LOCAL_PATH)/proprietary/bin/mtsd_logcat_events:system/bin/mtsd_logcat_events \
+    $(LOCAL_PATH)/proprietary/bin/mtsd_logcat_filter:system/bin/mtsd_logcat_filter \
+    $(LOCAL_PATH)/proprietary/bin/mtsd_logcat_main:system/bin/mtsd_logcat_main \
+    $(LOCAL_PATH)/proprietary/bin/mtsd_logcat_radio:system/bin/mtsd_logcat_radio \
+    $(LOCAL_PATH)/proprietary/bin/mtsd_logcat_system:system/bin/mtsd_logcat_system \
+    $(LOCAL_PATH)/proprietary/bin/mtsd_miniOS:system/bin/mtsd_miniOS \
+    $(LOCAL_PATH)/proprietary/bin/mtsd_miniOS_fm:system/bin/mtsd_miniOS_fm \
+    $(LOCAL_PATH)/proprietary/bin/pand:system/bin/pand \
+    $(LOCAL_PATH)/proprietary/bin/qosmgr:system/bin/qosmgr \
+    $(LOCAL_PATH)/proprietary/bin/system_server:system/bin/system_server \
+    $(LOCAL_PATH)/proprietary/bin/tlcWrapperApp:system/bin/tlcWrapperApp \
+    $(LOCAL_PATH)/proprietary/bin/xtwifi-client:system/bin/xtwifi-client \
+    $(LOCAL_PATH)/proprietary/bin/xtwifi-inet-agent:system/bin/xtwifi-inet-agent \
+    $(LOCAL_PATH)/proprietary/etc/dbus.conf:system/etc/dbus.conf \
+    $(LOCAL_PATH)/proprietary/etc/efs.txt:system/etc/efs.txt \
+    $(LOCAL_PATH)/proprietary/etc/thermald-8930-empty.conf:system/etc/thermald-8930-empty.conf \
+    $(LOCAL_PATH)/proprietary/etc/xtra_root_cert.pem:system/etc/xtra_root_cert.pem \
+    $(LOCAL_PATH)/proprietary/etc/xtwifi.conf:system/etc/xtwifi.conf \
+    $(LOCAL_PATH)/proprietary/lib/libxt_v02.so:system/lib/libxt_v02.so \
+    $(LOCAL_PATH)/proprietary/lib/libxtwifi_ulp_adaptor.so:system/lib/libxtwifi_ulp_adaptor.so \
+    $(LOCAL_PATH)/proprietary/lib/libxtwifi_zpp_adaptor.so:system/lib/libxtwifi_zpp_adaptor.so \
+    $(LOCAL_PATH)/proprietary/lib/hw/gestures.msm8960.so:system/lib/hw/gestures.msm8960.so \
+    $(LOCAL_PATH)/proprietary/lib/hw/nfc.default.so:system/lib/hw/nfc.default.so \
+    $(LOCAL_PATH)/proprietary/lib/libgesture-core.so:system/lib/libgesture-core.so \
+    $(LOCAL_PATH)/proprietary/lib/libgesture_client.so:system/lib/libgesture_client.so \
+    $(LOCAL_PATH)/proprietary/lib/libgestureservice.so:system/lib/libgestureservice.so \
+    $(LOCAL_PATH)/proprietary/lib/libmmgestures-linux.so:system/lib/libmmgestures-linux.so \
+    $(LOCAL_PATH)/proprietary/lib/libmmgesture_services.so:system/lib/libmmgesture_services.so \
+
+
+
+
+
+
 
