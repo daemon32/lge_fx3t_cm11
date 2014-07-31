@@ -73,6 +73,8 @@ PRODUCT_COPY_FILES += \
 
 # Media
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/proprietary/etc/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/proprietary/etc/firmware/vidc.b00:system/etc/firmware/vidc.b00 \
     $(LOCAL_PATH)/proprietary/etc/firmware/vidc.b01:system/etc/firmware/vidc.b01 \
     $(LOCAL_PATH)/proprietary/etc/firmware/vidc.b02:system/etc/firmware/vidc.b02 \
@@ -94,6 +96,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/mm-qcamera-test:system/bin/mm-qcamera-test \
     $(LOCAL_PATH)/proprietary/bin/v4l2-qcamera-app:system/bin/v4l2-qcamera-app \
     $(LOCAL_PATH)/proprietary/bin/mm-qcamera-testsuite-client:system/bin/mm-qcamera-testsuite-client \
+    $(LOCAL_PATH)/proprietary/bin/test_gemini:system/bin/test_gemini \
     $(LOCAL_PATH)/proprietary/lib/libadsprpc.so:system/lib/libadsprpc.so \
     $(LOCAL_PATH)/proprietary/lib/libchromatix_imx111_default_video.so:system/lib/libchromatix_imx111_default_video.so \
     $(LOCAL_PATH)/proprietary/lib/libchromatix_imx111_preview.so:system/lib/libchromatix_imx111_preview.so \
@@ -146,6 +149,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libqmi_client_qmux.so:system/lib/libqmi_client_qmux.so \
     $(LOCAL_PATH)/proprietary/lib/libqmi_csvt_srvc.so:system/lib/libqmi_csvt_srvc.so \
     $(LOCAL_PATH)/proprietary/lib/libqmiservices.so:system/lib/libqmiservices.so \
+    $(LOCAL_PATH)/proprietary/lib/libril-qc-qmi-1.so:system/lib/libril-qc-qmi-1.so \
+    $(LOCAL_PATH)/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libdiag.so:system/vendor/lib/libdiag.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_cci.so:system/vendor/lib/libqmi_cci.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libqmi_common_so.so:system/vendor/lib/libqmi_common_so.so \
@@ -179,10 +184,27 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/hci_qcomm_init:system/bin/hci_qcomm_init \
 
 # GPS
-#PRODUCT_COPY_FILES += \
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/lib/libloc_api_v02.so:system/lib/libloc_api_v02.so \
+    $(LOCAL_PATH)/proprietary/lib/libloc_core.so:system/lib/libloc_core.so \
+    $(LOCAL_PATH)/proprietary/lib/libloc_ds_api.so:system/lib/libloc_ds_api.so \
+    $(LOCAL_PATH)/proprietary/lib/libloc_eng.so:system/lib/libloc_eng.so \
+    $(LOCAL_PATH)/proprietary/lib/hw/gps.default.so:system/lib/hw/gps.default.so \
 
 # FM
 #PRODUCT_COPY_FILES += \
+
+#NFC
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
+    $(LOCAL_PATH)/proprietary/lib/hw/nfc_lg.default.so:system/lib/hw/nfc_lg.default.so \
+    $(LOCAL_PATH)/proprietary/lib/libLGnfc_config.so:system/lib/libLGnfc_config.so \
+    $(LOCAL_PATH)/proprietary/lib/libLGnfc_jni.so:system/lib/libLGnfc_jni.so \
+    $(LOCAL_PATH)/proprietary/lib/libnfc13_ndef.so:system/lib/libnfc13_ndef.so \
+    $(LOCAL_PATH)/proprietary/lib/libnfc13-nxp.so:system/lib/libnfc13-nxp.so \
+    $(LOCAL_PATH)/proprietary/lib/libnfc_ndef-nxp.so:system/lib/libnfc_ndef-nxp.so \
+    $(LOCAL_PATH)/proprietary/lib/libnfc-nxp.so:system/lib/libnfc-nxp.so \
+    $(LOCAL_PATH)/proprietary/lib/hw/nfc.default.so:system/lib/hw/nfc.default.so \
 
 # Time services
 PRODUCT_COPY_FILES += \
@@ -191,9 +213,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libtime_genoff.so:system/lib/libtime_genoff.so \
 
 
-
 # Sensors
 PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/proprietary/lib/libsensor1.so:system/lib/libsensor1.so \
+    $(LOCAL_PATH)/proprietary/lib/libsensor_reg.so:system/lib/libsensor_reg.so \
     $(LOCAL_PATH)/proprietary/lib/hw/sensors.default.so:system/lib/hw/sensors.default.so \
     $(LOCAL_PATH)/proprietary/lib/hw/sensors_qcom.so:system/lib/hw/sensors_qcom.so \
 
@@ -346,7 +369,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/subsystem_ramdump:system/bin/subsystem_ramdump \
     $(LOCAL_PATH)/proprietary/bin/tar:system/bin/tar \
     $(LOCAL_PATH)/proprietary/bin/test_diag:system/bin/test_diag \
-    $(LOCAL_PATH)/proprietary/bin/test_gemini:system/bin/test_gemini \
     $(LOCAL_PATH)/proprietary/bin/thermald:system/bin/thermald \
     $(LOCAL_PATH)/proprietary/bin/thermal-engine:system/bin/thermal-engine \
     $(LOCAL_PATH)/proprietary/bin/usbhub:system/bin/usbhub \
@@ -356,9 +378,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/bin/wdsdaemon:system/bin/wdsdaemon \
     $(LOCAL_PATH)/proprietary/bin/wl:system/bin/wl \
     $(LOCAL_PATH)/proprietary/etc/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/proprietary/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    $(LOCAL_PATH)/proprietary/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
     $(LOCAL_PATH)/proprietary/etc/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/proprietary/lib/libAppDataSearch.so:system/lib/libAppDataSearch.so \
     $(LOCAL_PATH)/proprietary/lib/libbcmwl.so:system/lib/libbcmwl.so \
@@ -379,7 +398,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libcorkscrew2.so:system/lib/libcorkscrew2.so \
     $(LOCAL_PATH)/proprietary/lib/libcrashreporter.so:system/lib/libcrashreporter.so \
     $(LOCAL_PATH)/proprietary/lib/libcurl.so:system/lib/libcurl.so \
-    $(LOCAL_PATH)/proprietary/lib/libdhwr.so:system/lib/libdhwr.so \
     $(LOCAL_PATH)/proprietary/lib/libdiagd_client.so:system/lib/libdiagd_client.so \
     $(LOCAL_PATH)/proprietary/lib/libDivxDrm.so:system/lib/libDivxDrm.so \
     $(LOCAL_PATH)/proprietary/lib/libdivxdrm_jni.so:system/lib/libdivxdrm_jni.so \
@@ -399,9 +417,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libEASInterface.so:system/lib/libEASInterface.so \
     $(LOCAL_PATH)/proprietary/lib/libecryptfs.so:system/lib/libecryptfs.so \
     $(LOCAL_PATH)/proprietary/lib/libecryptfs_key_mod_passphrase.so:system/lib/libecryptfs_key_mod_passphrase.so \
-    $(LOCAL_PATH)/proprietary/lib/libEmailCore.so:system/lib/libEmailCore.so \
     $(LOCAL_PATH)/proprietary/lib/libemotionalled_jni.so:system/lib/libemotionalled_jni.so \
-    $(LOCAL_PATH)/proprietary/lib/libExchangeActiveSync.so:system/lib/libExchangeActiveSync.so \
     $(LOCAL_PATH)/proprietary/lib/libexif_jni.so:system/lib/libexif_jni.so \
     $(LOCAL_PATH)/proprietary/lib/libext2_quota.so:system/lib/libext2_quota.so \
     $(LOCAL_PATH)/proprietary/lib/libExtendedExtractor.so:system/lib/libExtendedExtractor.so \
@@ -413,27 +429,20 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libfilterpack_facedetect.so:system/lib/libfilterpack_facedetect.so \
     $(LOCAL_PATH)/proprietary/lib/libfotajni.so:system/lib/libfotajni.so \
     $(LOCAL_PATH)/proprietary/lib/libfrsdk.so:system/lib/libfrsdk.so \
-    $(LOCAL_PATH)/proprietary/lib/libgames_rtmp_jni.so:system/lib/libgames_rtmp_jni.so \
-    $(LOCAL_PATH)/proprietary/lib/libgcastv2_base.so:system/lib/libgcastv2_base.so \
-    $(LOCAL_PATH)/proprietary/lib/libgcastv2_support.so:system/lib/libgcastv2_support.so \
     $(LOCAL_PATH)/proprietary/lib/libgcrypt.so:system/lib/libgcrypt.so \
     $(LOCAL_PATH)/proprietary/lib/libgnu.so:system/lib/libgnu.so \
-    $(LOCAL_PATH)/proprietary/lib/libgoogle_hotword_jni.so:system/lib/libgoogle_hotword_jni.so \
-    $(LOCAL_PATH)/proprietary/lib/libgoogle_recognizer_jni_l.so:system/lib/libgoogle_recognizer_jni_l.so \
     $(LOCAL_PATH)/proprietary/lib/libgpg-error.so:system/lib/libgpg-error.so \
     $(LOCAL_PATH)/proprietary/lib/libgps.utils.so:system/lib/libgps.utils.so \
     $(LOCAL_PATH)/proprietary/lib/libharfbuzz.so:system/lib/libharfbuzz.so \
     $(LOCAL_PATH)/proprietary/lib/libHDR.so:system/lib/libHDR.so \
     $(LOCAL_PATH)/proprietary/lib/libhook_jni.so:system/lib/libhook_jni.so \
     $(LOCAL_PATH)/proprietary/lib/libHtmlEditor.so:system/lib/libHtmlEditor.so \
-    $(LOCAL_PATH)/proprietary/lib/libhtmlwebcore.so:system/lib/libhtmlwebcore.so \
     $(LOCAL_PATH)/proprietary/lib/libidl.so:system/lib/libidl.so \
     $(LOCAL_PATH)/proprietary/lib/libimageutil_jni.so:system/lib/libimageutil_jni.so \
     $(LOCAL_PATH)/proprietary/lib/libImmVibeJ.so:system/lib/libImmVibeJ.so \
     $(LOCAL_PATH)/proprietary/lib/libirrc.so:system/lib/libirrc.so \
     $(LOCAL_PATH)/proprietary/lib/libirrcClient.so:system/lib/libirrcClient.so \
     $(LOCAL_PATH)/proprietary/lib/libirrcJni.so:system/lib/libirrcJni.so \
-    $(LOCAL_PATH)/proprietary/lib/libjgcastservice.so:system/lib/libjgcastservice.so \
     $(LOCAL_PATH)/proprietary/lib/libjni_lgeime_native.so:system/lib/libjni_lgeime_native.so \
     $(LOCAL_PATH)/proprietary/lib/libjni_lg_gallery_eglfence.so:system/lib/libjni_lg_gallery_eglfence.so \
     $(LOCAL_PATH)/proprietary/lib/libjni_xt9input_v9.so:system/lib/libjni_xt9input_v9.so \
@@ -460,8 +469,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/liblgftmitem.so:system/lib/liblgftmitem.so \
     $(LOCAL_PATH)/proprietary/lib/liblginvertcolor_jni.so:system/lib/liblginvertcolor_jni.so \
     $(LOCAL_PATH)/proprietary/lib/liblgmabl.so:system/lib/liblgmabl.so \
-    $(LOCAL_PATH)/proprietary/lib/libLGnfc_config.so:system/lib/libLGnfc_config.so \
-    $(LOCAL_PATH)/proprietary/lib/libLGnfc_jni.so:system/lib/libLGnfc_jni.so \
     $(LOCAL_PATH)/proprietary/lib/liblg_parser_ac3.so:system/lib/liblg_parser_ac3.so \
     $(LOCAL_PATH)/proprietary/lib/liblg_parser_asf.so:system/lib/liblg_parser_asf.so \
     $(LOCAL_PATH)/proprietary/lib/liblg_parser_avi.so:system/lib/liblg_parser_avi.so \
@@ -478,10 +485,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/liblgwnndict.so:system/lib/liblgwnndict.so \
     $(LOCAL_PATH)/proprietary/lib/libLGWnnJpnDic.so:system/lib/libLGWnnJpnDic.so \
     $(LOCAL_PATH)/proprietary/lib/liblinearalloc.so:system/lib/liblinearalloc.so \
-    $(LOCAL_PATH)/proprietary/lib/libloc_api_v02.so:system/lib/libloc_api_v02.so \
-    $(LOCAL_PATH)/proprietary/lib/libloc_core.so:system/lib/libloc_core.so \
-    $(LOCAL_PATH)/proprietary/lib/libloc_ds_api.so:system/lib/libloc_ds_api.so \
-    $(LOCAL_PATH)/proprietary/lib/libloc_eng.so:system/lib/libloc_eng.so \
     $(LOCAL_PATH)/proprietary/lib/libmlFIFO2.so:system/lib/libmlFIFO2.so \
     $(LOCAL_PATH)/proprietary/lib/libmm-abl.so:system/lib/libmm-abl.so \
     $(LOCAL_PATH)/proprietary/lib/libmm-abl-oem.so:system/lib/libmm-abl-oem.so \
@@ -501,11 +504,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libmmrtpdecoder.so:system/lib/libmmrtpdecoder.so \
     $(LOCAL_PATH)/proprietary/lib/libmmrtpencoder.so:system/lib/libmmrtpencoder.so \
     $(LOCAL_PATH)/proprietary/lib/libmnl.so:system/lib/libmnl.so \
-    $(LOCAL_PATH)/proprietary/lib/libmorpho_memory_allocator.so:system/lib/libmorpho_memory_allocator.so \
-    $(LOCAL_PATH)/proprietary/lib/libmorpho_noise_reduction.so:system/lib/libmorpho_noise_reduction.so \
-    $(LOCAL_PATH)/proprietary/lib/libmorpho_panorama_gp.so:system/lib/libmorpho_panorama_gp.so \
-    $(LOCAL_PATH)/proprietary/lib/libmorpho_panorama_wa_viewer.so:system/lib/libmorpho_panorama_wa_viewer.so \
-    $(LOCAL_PATH)/proprietary/lib/libmoviemaker-jni.so:system/lib/libmoviemaker-jni.so \
     $(LOCAL_PATH)/proprietary/lib/libmtpexif.so:system/lib/libmtpexif.so \
     $(LOCAL_PATH)/proprietary/lib/libmts.so:system/lib/libmts.so \
     $(LOCAL_PATH)/proprietary/lib/libndk1.so:system/lib/libndk1.so \
@@ -513,10 +511,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libnetfilter_conntrack.so:system/lib/libnetfilter_conntrack.so \
     $(LOCAL_PATH)/proprietary/lib/libnetjni.so:system/lib/libnetjni.so \
     $(LOCAL_PATH)/proprietary/lib/libnetmgr.so:system/lib/libnetmgr.so \
-    $(LOCAL_PATH)/proprietary/lib/libnfc13_ndef.so:system/lib/libnfc13_ndef.so \
-    $(LOCAL_PATH)/proprietary/lib/libnfc13-nxp.so:system/lib/libnfc13-nxp.so \
-    $(LOCAL_PATH)/proprietary/lib/libnfc_ndef-nxp.so:system/lib/libnfc_ndef-nxp.so \
-    $(LOCAL_PATH)/proprietary/lib/libnfc-nxp.so:system/lib/libnfc-nxp.so \
     $(LOCAL_PATH)/proprietary/lib/libnfnetlink.so:system/lib/libnfnetlink.so \
     $(LOCAL_PATH)/proprietary/lib/libNimsWrap.so:system/lib/libNimsWrap.so \
     $(LOCAL_PATH)/proprietary/lib/libnsesolver.so:system/lib/libnsesolver.so \
@@ -527,8 +521,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libOmxEvrcDec.so:system/lib/libOmxEvrcDec.so \
     $(LOCAL_PATH)/proprietary/lib/libOmxQcelp13Dec.so:system/lib/libOmxQcelp13Dec.so \
     $(LOCAL_PATH)/proprietary/lib/libOmxWmaDec.so:system/lib/libOmxWmaDec.so \
-    $(LOCAL_PATH)/proprietary/lib/libpatts_engine_jni_api_ub.210030011.so:system/lib/libpatts_engine_jni_api_ub.210030011.so \
-    $(LOCAL_PATH)/proprietary/lib/libphotoeditor_native.so:system/lib/libphotoeditor_native.so \
     $(LOCAL_PATH)/proprietary/lib/libprofiler_msmadc.so:system/lib/libprofiler_msmadc.so \
     $(LOCAL_PATH)/proprietary/lib/libproxyhal.so:system/lib/libproxyhal.so \
     $(LOCAL_PATH)/proprietary/lib/libpsrnlge.so:system/lib/libpsrnlge.so \
@@ -538,13 +530,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libQSEEComAPI.so:system/lib/libQSEEComAPI.so \
     $(LOCAL_PATH)/proprietary/lib/librctransport.so:system/lib/librctransport.so \
     $(LOCAL_PATH)/proprietary/lib/librectifier-v7a.so:system/lib/librectifier-v7a.so \
-    $(LOCAL_PATH)/proprietary/lib/libril-qc-qmi-1.so:system/lib/libril-qc-qmi-1.so \
-    $(LOCAL_PATH)/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
     $(LOCAL_PATH)/proprietary/lib/libripple.so:system/lib/libripple.so \
     $(LOCAL_PATH)/proprietary/lib/libripple_with_log.so:system/lib/libripple_with_log.so \
     $(LOCAL_PATH)/proprietary/lib/librmp.so:system/lib/librmp.so \
-    $(LOCAL_PATH)/proprietary/lib/libsensor1.so:system/lib/libsensor1.so \
-    $(LOCAL_PATH)/proprietary/lib/libsensor_reg.so:system/lib/libsensor_reg.so \
     $(LOCAL_PATH)/proprietary/lib/libserial_port.so:system/lib/libserial_port.so \
     $(LOCAL_PATH)/proprietary/lib/libSHIMDivxDrm.so:system/lib/libSHIMDivxDrm.so \
     $(LOCAL_PATH)/proprietary/lib/libsoftap.so:system/lib/libsoftap.so \
@@ -567,11 +555,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libuicc.so:system/lib/libuicc.so \
     $(LOCAL_PATH)/proprietary/lib/libutils2.so:system/lib/libutils2.so \
     $(LOCAL_PATH)/proprietary/lib/libvcdecoder_jni.so:system/lib/libvcdecoder_jni.so \
-    $(LOCAL_PATH)/proprietary/lib/libvideochat_jni.so:system/lib/libvideochat_jni.so \
     $(LOCAL_PATH)/proprietary/lib/libvolumevibratorcallback.so:system/lib/libvolumevibratorcallback.so \
     $(LOCAL_PATH)/proprietary/lib/libvolumevibrator_jni.so:system/lib/libvolumevibrator_jni.so \
-    $(LOCAL_PATH)/proprietary/lib/libvrffmpeg.so:system/lib/libvrffmpeg.so \
-    $(LOCAL_PATH)/proprietary/lib/libvrffmpeg_wrap.so:system/lib/libvrffmpeg_wrap.so \
     $(LOCAL_PATH)/proprietary/lib/libWbxmlParser.so:system/lib/libWbxmlParser.so \
     $(LOCAL_PATH)/proprietary/lib/libwebp_android.so:system/lib/libwebp_android.so \
     $(LOCAL_PATH)/proprietary/lib/libwebrtc_audio_coding.so:system/lib/libwebrtc_audio_coding.so \
@@ -586,9 +571,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libxml.so:system/lib/libxml.so \
     $(LOCAL_PATH)/proprietary/lib/libxml2.so:system/lib/libxml2.so \
     $(LOCAL_PATH)/proprietary/lib/hw/bplus.default.so:system/lib/hw/bplus.default.so \
-    $(LOCAL_PATH)/proprietary/lib/hw/gps.default.so:system/lib/hw/gps.default.so \
     $(LOCAL_PATH)/proprietary/lib/hw/lights.msm8960.so:system/lib/hw/lights.msm8960.so \
-    $(LOCAL_PATH)/proprietary/lib/hw/nfc_lg.default.so:system/lib/hw/nfc_lg.default.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libalarmservice_jni.so:system/vendor/lib/libalarmservice_jni.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/lib-dplmedia.so:system/vendor/lib/lib-dplmedia.so \
     $(LOCAL_PATH)/proprietary/vendor/lib/libdrmdecrypt.so:system/vendor/lib/libdrmdecrypt.so \
@@ -666,7 +649,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/proprietary/lib/libxtwifi_ulp_adaptor.so:system/lib/libxtwifi_ulp_adaptor.so \
     $(LOCAL_PATH)/proprietary/lib/libxtwifi_zpp_adaptor.so:system/lib/libxtwifi_zpp_adaptor.so \
     $(LOCAL_PATH)/proprietary/lib/hw/gestures.msm8960.so:system/lib/hw/gestures.msm8960.so \
-    $(LOCAL_PATH)/proprietary/lib/hw/nfc.default.so:system/lib/hw/nfc.default.so \
     $(LOCAL_PATH)/proprietary/lib/libgesture-core.so:system/lib/libgesture-core.so \
     $(LOCAL_PATH)/proprietary/lib/libgesture_client.so:system/lib/libgesture_client.so \
     $(LOCAL_PATH)/proprietary/lib/libgestureservice.so:system/lib/libgestureservice.so \
