@@ -190,7 +190,7 @@ kill_hciattach ()
   # this shell doesn't exit now -- wait returns for normal exit
 }
 
-logi "init.engdo.bt.sh config = $config"
+logi "init.bt.sh config = $config"
 case "$config" in
     "onboot")
         program_bdaddr
