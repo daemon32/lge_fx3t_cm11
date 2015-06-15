@@ -1,4 +1,4 @@
-lge_f3t_cm11
+lge_fx3t_cm11
 =============
 
 CM11 Kernel and Device tree for LG Optimus F3
