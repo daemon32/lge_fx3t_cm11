@@ -2,11 +2,11 @@
 $(call inherit-product, vendor/cm/config/gsm.mk)
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 960
-TARGET_SCREEN_WIDTH  := 540
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH  := 480
 
 # Release name
-PRODUCT_RELEASE_NAME := f6
+PRODUCT_RELEASE_NAME := f3
 
 # NFC
 $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
@@ -15,13 +15,13 @@ $(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/lge/f6mt/device_f6mt.mk)
+$(call inherit-product, device/lge/fx3t/device_fx3t.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := f6mt
-PRODUCT_NAME := cm_f6mt
-PRODUCT_BRAND := MetroPCS
-PRODUCT_MODEL := LG-MS500
+PRODUCT_DEVICE := fx3t
+PRODUCT_NAME := cm_fx3t
+PRODUCT_BRAND := T-Mobile
+PRODUCT_MODEL := LG-P659
 PRODUCT_MANUFACTURER := LGE
 
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=f6mt
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=fx3t

@@ -1,6 +1,6 @@
 
 # Inherit from the proprietary version
--include vendor/lge/f6mt/BoardConfigVendor.mk
+-include vendor/lge/fx3t/BoardConfigVendor.mk
 
 
 BOARD_VENDOR := LGE
@@ -19,22 +19,22 @@ TARGET_USES_QCOM_BSP := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
 
 # Kernel
-BOARD_CUSTOM_BOOTIMG_MK      := device/lge/f6mt/releasetools/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK      := device/lge/fx3t/releasetools/mkbootimg.mk
 BOARD_KERNEL_CMDLINE         := androidboot.hardware=qcom androidboot.selinux=permissive user_debug=31 zcache
 BOARD_KERNEL_BASE            := 0x80200000
 BOARD_MKBOOTIMG_ARGS         := --ramdisk_offset 0x02000000
 BOARD_KERNEL_PAGESIZE        := 2048
-TARGET_KERNEL_SOURCE         := kernel/lge/f6mt
-TARGET_KERNEL_CONFIG         := cm_f6mt_defconfig
+TARGET_KERNEL_SOURCE         := kernel/lge/fx3t
+TARGET_KERNEL_CONFIG         := cm_fx3t_defconfig
 TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
-TARGET_SPECIFIC_HEADER_PATH := device/lge/f6mt/include
+TARGET_SPECIFIC_HEADER_PATH := device/lge/fx3t/include
 TARGET_NO_INITLOGO := true
 
 # Recovery
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
-TARGET_RECOVERY_FSTAB := device/lge/f6mt/ramdisk/fstab.qcom
-TARGET_RECOVERY_INITRC := device/lge/f6mt/recovery/root/init.recovery.rc
+TARGET_RECOVERY_FSTAB := device/lge/fx3t/ramdisk/fstab.qcom
+TARGET_RECOVERY_INITRC := device/lge/fx3t/recovery/root/init.recovery.rc
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/lcd/panel/backlight\"
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
@@ -53,7 +53,7 @@ TARGET_QCOM_DISPLAY_VARIANT := caf
 USE_OPENGL_RENDERER := true
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_ION := true
-BOARD_EGL_CFG := device/lge/f6mt/proprietary/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/lge/fx3t/proprietary/lib/egl/egl.cfg
 
 # Audio
 TARGET_QCOM_AUDIO_VARIANT := caf
@@ -107,7 +107,7 @@ WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcmdhd.bin"
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/f6mt/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/fx3t/bluetooth
 
 # GPS
 BOARD_HAVE_NEW_QC_GPS := true
@@ -126,7 +126,7 @@ TARGET_USES_CM_POWERHAL := true
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charging
 BOARD_BATTERY_DEVICE_NAME := "battery"
 BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_CHARGER_RES := device/lge/f6mt/ramdisk/res/images/charger
+BOARD_CHARGER_RES := device/lge/fx3t/ramdisk/res/images/charger
 
 # Vold
 BOARD_VOLD_MAX_PARTITIONS := 24
@@ -137,8 +137,8 @@ TARGET_PROVIDES_LIBLIGHT := true
 
 # Releasetools
 TARGET_PROVIDES_RELEASETOOLS := true
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./device/lge/f6mt/releasetools/ota_from_target_files
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./device/lge/fx3t/releasetools/ota_from_target_files
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := LGMS500,f6mt
+TARGET_OTA_ASSERT_DEVICE := LG-P659,fx3t
 

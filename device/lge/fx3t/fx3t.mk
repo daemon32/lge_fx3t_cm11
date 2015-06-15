@@ -18,7 +18,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/lge/f6mt/f6mt-vendor.mk)
+$(call inherit-product-if-exists, vendor/lge/fx3t/fx3t-vendor.mk)
 
 
 # Permissions
@@ -44,7 +44,7 @@ PRODUCT_COPY_FILES += \
 
 
 # Device overlay
-DEVICE_PACKAGE_OVERLAYS += device/lge/f6mt/overlay
+DEVICE_PACKAGE_OVERLAYS += device/lge/fx3t/overlay
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
@@ -56,8 +56,8 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 PRODUCT_BOOT_JARS += qcmediaplayer
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 960
-TARGET_SCREEN_WIDTH := 540
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
 
 # Graphics
 PRODUCT_PACKAGES += \
