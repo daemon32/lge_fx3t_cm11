@@ -30,7 +30,7 @@ obj-y += board-fx3.o \
 	board-fx3-input-vzw.o \
 	board-fx3-sensor-vzw.o \
 	board-fx3-sound.o \
-	board-fx3-nfc.o\
+	board-fx3-nfc.o \
 	board-fx3-misc.o
 else
 ifdef CONFIG_TOUCHSCREEN_MELFAS_MMS134
@@ -98,7 +98,8 @@ obj-$(CONFIG_MACH_MSM8930_FX3) += board-fx3.o \
 	board-fx3-input.o \
 	board-fx3-sensor.o \
 	board-fx3-sound.o \
-	board-fx3-nfc.o
+	board-fx3-nfc.o \
+	board-fx3-misc.o
 endif
 endif
 endif

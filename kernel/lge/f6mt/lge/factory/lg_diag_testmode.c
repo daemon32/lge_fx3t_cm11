@@ -10,7 +10,7 @@
 
 #include <userDataBackUpDiag.h>
 #include <userDataBackUpTypeDef.h> 
-#include <mach/smd_private.h>
+#include <../../kernel/arch/arm/mach-msm/smd_private.h>
 #include <linux/slab.h>
 
 

@@ -25,18 +25,11 @@
 
 #include <linux/input/lge_touch_core.h>
 #include <linux/input/touch_synaptics.h>
-#if defined(CONFIG_MACH_LGE_FX3_VZW) || defined(CONFIG_MACH_LGE_FX3Q_TMUS) 
-#include "SynaImage_f3q.h"
-#else
 #include "SynaImage.h"
-#endif
 #include <linux/regulator/machine.h>
 
 #include <mach/board_lge.h>
 
-#if defined(CONFIG_MACH_LGE_FX3_TMUS)
-#define MSM_8930_TS_MAKER_ID        68
-#endif//
 /* RMI4 spec from 511-000405-01 Rev.D
  * Function	Purpose									See page
  * $01		RMI Device Control						45
@@ -304,20 +297,8 @@ int synaptics_ts_get_data(struct i2c_client *client, struct touch_data* data)
 		goto err_synaptics_device_damage;
 	}
 
-	/* LGE_CHANGE
-	 * 2013-04-17, sangyeol.ryu@lge.com
-	 * 2D finger release bug fix
-	 * in case report mode is REDUCED_REPORT_MODE,
-	 * despite finger pressed, interrupt_status_reg value can be 0x10.
-	 * so to reserve finger pressed status, remove if condition
-	 */
-#if defined(CONFIG_MACH_LGE_FX3_VZW) || defined(CONFIG_MACH_LGE_FX3Q_TMUS)
-	/* skip if condition */
-#else /* !CONFIG_MACH_LGE_FX3_VZW */
 	/* Finger */
-	if (likely(ts->ts_data.interrupt_status_reg & INTERRUPT_MASK_ABS0))
-#endif /* CONFIG_MACH_LGE_FX3_VZW */
-	{
+	if (likely(ts->ts_data.interrupt_status_reg & INTERRUPT_MASK_ABS0)) {
 		if (unlikely(touch_i2c_read(client, FINGER_STATE_REG,
 				sizeof(ts->ts_data.finger.finger_status_reg),
 				ts->ts_data.finger.finger_status_reg) < 0)) {
@@ -391,7 +372,7 @@ int synaptics_ts_get_data(struct i2c_client *client, struct touch_data* data)
 						break;
 					}
 				}
-			} else {
+			}else {
 				/* release */
 				data->curr_button.key_code = ts->ts_data.button.key_code;
 				data->curr_button.state = 0;
@@ -554,29 +535,12 @@ int get_ic_info(struct synaptics_ts_data* ts, struct touch_fw_info* fw_info)
 	strncpy(ts->fw_info.image_config_id, &SynaFirmware[cnt][0xb100],4);
 	ts->fw_info.fw_start = (unsigned char *)&SynaFirmware[cnt][0];
 	ts->fw_info.fw_size = sizeof(SynaFirmware[0]);
-#else // !ARRAYED_TOUCH_FW_BIN
-#if defined(CONFIG_MACH_LGE_FX3_TMUS)
-		if(gpio_get_value(MSM_8930_TS_MAKER_ID)) {
-			strncpy(ts->fw_info.fw_image_product_id, &SynaFirmware_elk[16], 10);
-			strncpy(ts->fw_info.image_config_id, &SynaFirmware_elk[0xb100],4);
-			ts->fw_info.fw_start = (unsigned char *)&SynaFirmware_elk[0];
-			ts->fw_info.fw_size = sizeof(SynaFirmware_elk);
-			printk("%s :MSM_8930_TS_MAKER_ID is high \n", __func__);
-		}
-		else
-		{
-			strncpy(ts->fw_info.fw_image_product_id, &SynaFirmware[16], 10);
-			strncpy(ts->fw_info.image_config_id, &SynaFirmware[0xb100],4);
-			ts->fw_info.fw_start = (unsigned char *)&SynaFirmware[0];
-			ts->fw_info.fw_size = sizeof(SynaFirmware);
-		}
-#else // !CONFIG_MACH_LGE_FX3_TMUS
+#else
 	strncpy(ts->fw_info.fw_image_product_id, &SynaFirmware[16], 10);
 	strncpy(ts->fw_info.image_config_id, &SynaFirmware[0xb100],4);
 	ts->fw_info.fw_start = (unsigned char *)&SynaFirmware[0];
 	ts->fw_info.fw_size = sizeof(SynaFirmware);
-#endif//	 CONFIG_MACH_LGE_FX3_TMUS
-#endif// ARRAYED_TOUCH_FW_BIN
+#endif
 	ts->fw_info.fw_image_rev = ts->fw_info.fw_start[31];
 
 	if (unlikely(touch_i2c_read(ts->client, FLASH_CONTROL_REG, sizeof(flash_control), &flash_control) < 0)) {
@@ -619,19 +583,13 @@ int synaptics_ts_init(struct i2c_client* client, struct touch_fw_info* fw_info)
 	if (!ts->is_probed)
 		if (unlikely(get_ic_info(ts, fw_info) < 0))
 			return -EIO;
-#if defined(CONFIG_MACH_LGE_FX3_VZW) || defined(CONFIG_MACH_LGE_FX3Q_TMUS) 
-	if (unlikely(touch_i2c_write_byte(client, DEVICE_CONTROL_REG,
-			DEVICE_CONTROL_NORMAL_OP | DEVICE_CONTROL_CONFIGURED) < 0)) {
-		TOUCH_ERR_MSG("DEVICE_CONTROL_REG write fail\n");
-		return -EIO;
-	}
-#else /* !CONFIG_MACH_LGE_FX3_VZW */
+
 	if (unlikely(touch_i2c_write_byte(client, DEVICE_CONTROL_REG,
 			DEVICE_CONTROL_NOSLEEP | DEVICE_CONTROL_CONFIGURED) < 0)) {
 		TOUCH_ERR_MSG("DEVICE_CONTROL_REG write fail\n");
 		return -EIO;
 	}
-#endif /* CONFIG_MACH_LGE_FX3_VZW */
+
 	if (unlikely(touch_i2c_read(client, INTERRUPT_ENABLE_REG,
 			1, &buf) < 0)) {
 		TOUCH_ERR_MSG("INTERRUPT_ENABLE_REG read fail\n");

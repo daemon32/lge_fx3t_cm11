@@ -14,7 +14,7 @@
 #ifndef __TSPDRV_UTIL_H
 #define __TSPDRV_UTIL_H
 
-#include <linux/mfd/pm8xxx/core.h>
+#include "linux/mfd/pm8xxx/core.h"
 
 #define VIB_DRV         0x4A
 
