@@ -1,7 +1,7 @@
-lge_f6mt_cm11
+lge_f3t_cm11
 =============
 
-CM11 Kernel and Device tree for LG Optimus F6
+CM11 Kernel and Device tree for LG Optimus F3
 
 copy contents to the root of your cm11 folder
 
